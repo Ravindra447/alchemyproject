@@ -32,9 +32,7 @@ mongoose
     .catch(err => console.log(err));
 
 //Passport middleware
-app.get('*',(req,res)=>{
-	res.sendFile(path.join(__dirname,'public/index.html'))
-});
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -45,6 +43,9 @@ require('./config/passport')(passport);
 app.use('/api/users', users);
 
 
-const port = process.env.PORT || 5000;
+const port =5000;
+app.get('*',(req,res)=>{
+	res.sendFile(path.join(__dirname,'public/index.html'))
+});
 
 app.listen(port, () => console.log(`server running on port ${port}`));

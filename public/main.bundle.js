@@ -1235,13 +1235,13 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:5000/api/users/register', user, { headers: headers })
+        return this.http.post('/api/users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:5000/api/users/login', user, { headers: headers })
+        return this.http.post('/api/users/login', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getCurrent = function () {
@@ -1249,18 +1249,18 @@ var AuthService = /** @class */ (function () {
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.get('http://localhost:5000/api/users/current', { headers: headers })
+        return this.http.get('/api/users/current', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getPrevBookingData = function () {
-        return this.http.get('http://localhost:5000/api/users/prevBookingData')
+        return this.http.get('/api/users/prevBookingData')
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.updatePrevBookingData = function (status) {
         console.log(status);
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:5000/api/users/updatePrevBooking', status, { headers: headers })
+        return this.http.post('/api/users/updatePrevBooking', status, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.loadToken = function () {

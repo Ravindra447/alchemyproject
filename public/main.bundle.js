@@ -202,7 +202,7 @@ module.exports = "#available{\n\tbackground: white;\n  \tborder: 0.5px solid lig
 /***/ "./src/app/available-rooms/available-rooms.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-12\">\n\t<div class=\"row\">\n\t\t<div class=\"col-12\" id=\"available\" *ngFor=\"let item of availableRooms\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-12 col-md-5\" id=\"staticImg\">\n\t\t\t\t\t<!-- <img src=\"http://localhost:5000/static/{{item.image}}\" alt=\"\" width=\"100%\"  height=\"100%\"> -->\n\t\t\t\t\t<img src=\"static/{{item.image}}\" alt=\"\" width=\"100%\"  height=\"100%\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-12 col-md-7\" id=\"roomDetails\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-6\" style=\"margin-top: 10px;\">\n\t\t\t\t\t\t\t<h3 style=\"color:#A569BD;\"><strong>{{item.location}}</strong></h3>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div align=\"center\" class=\"col-6\" style=\"margin-top: 10px;\">\n\t\t\t\t\t\t\t<h6 style=\"color:green;\"><strong>{{item.status}}</strong></h6>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\">\n\t\t\t\t\t\t\t<strong>Room Id :</strong> {{item.roomId}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\">\n\t\t\t\t\t\t\t<strong>Capacity :</strong> {{item.capacity}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\" style=\"word-wrap: break-word;\">\n\t\t\t\t\t\t\t<strong>Contact Address :</strong>{{item.contactAddress}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\" style=\"margin-top: 10px;\">\n\t\t\t\t\t\t\t<a href=\"#demo\" data-toggle=\"collapse\" style=\"font-size: 14px; text-decoration: underline; color: green;\">View more Information</a>\n\t\t\t\t\t\t\t<div id=\"demo\" class=\"collapse\">\n    \t\t\t\t\t\t\t<!-- <div style=\"font-size: 14px;\">\n\t\t\t\t\t\t\t\t\t<strong>Description : </strong> description\n    \t\t\t\t\t\t\t</div> -->\n    \t\t\t\t\t\t\t<div style=\"font-size: 14px;\">\n\t\t\t\t\t\t\t\t\t<strong>Configuration : </strong>{{item.configuration}}\n    \t\t\t\t\t\t\t</div>\n    \t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12 bottomright\" align=\"end\" style=\"bottom: 0px;\">\n\t\t\t\t\t\t\t<button class=\"btn btn-primary\" (click)=\"bookRoom(item)\">Book Room</button>\n\t\t\t\t\t\t\t<button class=\"btn\" style=\"background-color:orange;\" (click)=\"tentativeRoom(item)\">Tentative</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\t\n\t</div>\n\t\t\n</div>\n"
+module.exports = "<div class=\"col-12\">\n\t<div class=\"row\">\n\t\t<div class=\"col-12\" id=\"available\" *ngFor=\"let item of availableRooms | availableRoom:location; let i=index\">\n\t\t\t<div class=\"row\" *ngIf=\"item!==-1\">\n\t\t\t\t<div class=\"col-12 col-md-5\" id=\"staticImg\">\n\t\t\t\t\t<!-- <img src=\"http://localhost:5000/static/{{item.image}}\" alt=\"\" width=\"100%\"  height=\"100%\"> -->\n\t\t\t\t\t<img src=\"static/{{item.image}}\" alt=\"\" width=\"100%\"  height=\"100%\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-12 col-md-7\" id=\"roomDetails\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-6\" style=\"margin-top: 10px;\">\n\t\t\t\t\t\t\t<h3 style=\"color:#A569BD;\"><strong>{{item.location}}</strong></h3>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div align=\"center\" class=\"col-6\" style=\"margin-top: 10px;\">\n\t\t\t\t\t\t\t<h6 style=\"color:green;\"><strong>{{item.status}}</strong></h6>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\">\n\t\t\t\t\t\t\t<strong>Room Id :</strong> {{item.roomId}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\">\n\t\t\t\t\t\t\t<strong>Capacity :</strong> {{item.capacity}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\" style=\"word-wrap: break-word;\">\n\t\t\t\t\t\t\t<strong>Contact Address :</strong>{{item.contactAddress}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\" style=\"margin-top: 10px;\">\n\t\t\t\t\t\t\t<a href=\"#demo{{i}}\" data-toggle=\"collapse\" style=\"font-size: 14px; text-decoration: underline; color: green;\">View more Information</a>\n\t\t\t\t\t\t\t<div id=\"demo{{i}}\" class=\"collapse\">\n    \t\t\t\t\t\t\t<!-- <div style=\"font-size: 14px;\">\n\t\t\t\t\t\t\t\t\t<strong>Description : </strong> description\n    \t\t\t\t\t\t\t</div> -->\n    \t\t\t\t\t\t\t<div style=\"font-size: 14px;\">\n\t\t\t\t\t\t\t\t\t<strong>Configuration : </strong>{{item.configuration}}\n    \t\t\t\t\t\t\t</div>\n    \t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12 bottomright\" align=\"end\" style=\"bottom: 0px;\">\n\t\t\t\t\t\t\t<button class=\"btn btn-primary\" (click)=\"bookRoom(item)\">Book Room</button>\n\t\t\t\t\t\t\t<button class=\"btn\" style=\"background-color:orange;\" (click)=\"tentativeRoom(item)\">Tentative</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div align=\"center\" *ngIf=\"item ===-1\">\n\t\t\t\t<h4 style=\"padding: 100px;\">-- NO Rooms Availble In {{location}} --</h4>\n\t\t\t</div>\n\t\t</div>\t\n\t</div>\n\t\t\n</div>\n"
 
 /***/ }),
 
@@ -238,12 +238,11 @@ var AvailableRoomsComponent = /** @class */ (function () {
     }
     AvailableRoomsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.status = "Available";
         this.activatedRoute.paramMap.subscribe(function (params) {
             //console.log(params.get('name'));
             //console.log(params.get('details'));
             _this.location = params.get('location');
-            console.log(_this.location);
+            // console.log(this.location);
         });
         if (localStorage.getItem('user') != undefined) {
             this.UserData = JSON.parse(localStorage.getItem('user'));
@@ -259,6 +258,7 @@ var AvailableRoomsComponent = /** @class */ (function () {
     AvailableRoomsComponent.prototype.bookRoom = function (item) {
         var _this = this;
         var bookDetails = {
+            bookingId: item._id,
             userId: this.userId,
             roomId: item.roomId,
             capacity: item.capacity,
@@ -273,10 +273,14 @@ var AvailableRoomsComponent = /** @class */ (function () {
                 _this.flashMessageService.show('Your Booking has Success', { cssClass: 'alert-success', timeout: 3000 });
             }
         });
+        this.authService.updateBooking(bookDetails).subscribe(function (available) {
+            _this.availableRooms = available.data;
+        });
     };
     AvailableRoomsComponent.prototype.tentativeRoom = function (item) {
         var _this = this;
         var bookDetails = {
+            bookingId: item._id,
             userId: this.userId,
             roomId: item.roomId,
             capacity: item.capacity,
@@ -290,6 +294,10 @@ var AvailableRoomsComponent = /** @class */ (function () {
             if (data.success) {
                 _this.flashMessageService.show('Your Booking has been Pending', { cssClass: 'alert-success', timeout: 3000 });
             }
+        });
+        this.authService.updateBooking(bookDetails).subscribe(function (available) {
+            _this.availableRooms = available.data;
+            // console.log(available);
         });
     };
     AvailableRoomsComponent = __decorate([
@@ -877,24 +885,15 @@ var AvailableRoomPipe = /** @class */ (function () {
     }
     AvailableRoomPipe.prototype.transform = function (items, location, status) {
         if (items) {
-            return items;
-            // console.log(items);
-            // console.log(location);
-            // console.log(status);
-            // let data= items.filter(item=>{
-            // 	if(!location && status){
-            // 		return (item.status==status);
-            // 	}
-            // 	if(location && status){
-            // 		return (item.location==location && item.status==status);
-            // 	}
-            // });
-            // // this.dataLength=data.length;
-            // // console.log(this.dataLength);
-            // if(data.length===0){
-            // 	return [-1];
-            // }
-            //    return data;
+            var data = items.filter(function (item) {
+                if (location) {
+                    return (item.status == "Available" && item.location == location);
+                }
+            });
+            if (data.length === 0) {
+                return [-1];
+            }
+            return data;
         }
     };
     AvailableRoomPipe = __decorate([
@@ -1271,7 +1270,7 @@ module.exports = ""
 /***/ "./src/app/search-form/search-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <form (submit)=\"checkAvailable()\">\n        <div class=\"form-group\">\n          <label for=\"from_date\">Start Date </label>\n          <input type=\"date\" class=\"form-control\" id=\"start-date\" placeholder=\"From Date\">\n        </div>\n        <div class=\"form-group\">\n          <label for=\"from_date\">End Date </label>\n          <input type=\"date\" class=\"form-control\" id=\"end-date\" placeholder=\"End Date\">\n        </div>\n        <div class=\"form-group\">\n          <label for=\"exampleFormControlSelect1\">Location</label>\n          <select class=\"form-control\" id=\"exampleFormControlSelect1\" (change)=\"locationChange($event.target.value)\">\n            <option value=\"Bangalore\">Bangalore</option>\n            <option value=\"Chennai\">Chennai</option>\n            <option value=\"Hyderabad\">Hyderabad</option>\n            <option value=\"Kolkata\">Kolkata</option>\n            <option value=\"Mumbai\">Mumbai</option>\n            <option value=\"NCR\">NCR</option>\n            <option value=\"Pune\">Pune</option>\n          </select>\n        </div>\n\n        <div class=\"form-group\">\n          <label for=\"exampleFormControlSelect1\">Seater</label>\n          <select class=\"form-control\" id=\"exampleFormControlSelect1\">\n            <option>10</option>\n            <option>15</option>\n            <option>20</option>\n            <option>30</option>\n            <option>50</option>\n          </select>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"configurations\">Congiguration</label>\n          <select class=\"form-control\" id=\"configurations\">\n            <option *ngFor=\"let item of configurations\">{{item.configuration}}</option>\n          </select>\n        </div>\n        <button type=\"submit\" class=\"btn btn-primary\">Check Availability</button>\n      </form>\n    </div>\n    <div class=\"col-md-6\">\n      <!DOCTYPE html>\n<html>\n<head>\n\n<style>\n* {box-sizing: border-box;}\nul {list-style-type: none;}\nbody {font-family: Verdana, sans-serif;\nbackground-color: lavender;\npadding-top: 0px;\n }\n\n.month {\n    padding: 70px 25px;\n    width: 100%;\n    background: #1abc9c;\n    text-align: center;\n}\n\n.month ul {\n    margin: 0;\n    padding: 0;\n}\n\n.month ul li {\n    color: white;\n    font-size: 20px;\n    text-transform: uppercase;\n    letter-spacing: 3px;\n}\n\n.month .prev {\n    float: left;\n    padding-top: 10px;\n}\n\n.month .next {\n    float: right;\n    padding-top: 10px;\n}\n\n.weekdays {\n    margin: 0;\n    padding: 15px 0;\n    background-color: #ddd;\n\n}\n\n.weekdays li {\n    display: inline-block;\n    width: 10.6%;\n    color: #666;\n    text-align: center;\n}\n\n.days {\n    padding: 10px 0;\n    background: #eee;\n    margin: 0;\n}\n\n.days li {\n    list-style-type: none;\n    display: inline-block;\n    width: 12.6%;\n    text-align: center;\n    margin-bottom: 5px;\n    font-size:12px;\n    color: #777;\n}\n\n.days li .active {\n    padding: 5px;\n    background: #1abc9c;\n    color: white !important\n}\n.days li .tantitive {\n    padding: 5px;\n    background: orange;\n    color: white !important\n}\n.days li .cancelled {\n    padding: 5px;\n    background: red;\n    color: white !important\n}\n\n/* Add media queries for smaller screens */\n@media screen and (max-width:720px) {\n    .weekdays li, .days li {width: 13.1%;}\n}\n\n@media screen and (max-width: 420px) {\n    .weekdays li, .days li {width: 12.5%;}\n    .days li .active {padding: 2px;}\n}\n\n@media screen and (max-width: 290px) {\n    .weekdays li, .days li {width: 12.2%;}\n}\n</style>\n</head>\n<body>\n\n\n<div class=\"month\">      \n  <ul>\n    <li class=\"prev\">&#10094;</li>\n    <li class=\"next\">&#10095;</li>\n    <li>\n      June<br>\n      <span style=\"font-size:18px\">2018</span>\n    </li>\n  </ul>\n</div>\n\n<ul class=\"weekdays\">\n  <li style=\"padding-left: 10px;\">Mo</li>\n  <li style=\"padding-left: 20px;\">Tu</li>\n  <li style=\"padding-left: 40px;\">We</li>\n  <li style=\"padding-left: 50px;\">Th</li>\n  <li style=\"padding-left: 65px;\">Fr</li>\n  <li style=\"padding-left: 65px;\">Sa</li>\n  <li style=\"padding-left: 65px;\">Su</li>\n</ul>\n\n<ul class=\"days\">  \n  <li><span class=\"active\">1</span></li>\n  <li><span class=\"cancelled\">2</span></li>\n  <li><span class=\"active\">3</span></li>\n  <li>4</li>\n  <li><span class=\"active\">5</span></li>\n  <li>6</li>\n  <li><span class=\"tantitive\">7</span></li>\n  <li>8</li>\n  <li>9</li>\n  <li>10</li>\n  <li>11</li>\n  <li>12</li>\n  <li><span class=\"cancelled\">13</span></li>\n  <li>14</li>\n  <li><span class=\"tantitive\">15</span></li>\n  <li>16</li>\n  <li><span class=\"cancelled\">17</span></li>\n  <li><span class=\"active\">18</span></li>\n  <li>19</li>\n  <li>20</li>\n  <li><span class=\"active\">21</span></li>\n  <li>22</li>\n  <li><span class=\"tantitive\">23</span></li>\n  <li>24</li>\n  <li>25</li>\n  <li><span class=\"tantitive\">26</span></li>\n  <li><span class=\"tantitive\">27</span></li>\n  <li>28</li>\n  <li>29</li>\n  <li>30</li>\n  <li><span class=\"active\">31</span></li>\n</ul>\n\n</body>\n</html>\n\n\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <form (submit)=\"checkAvailable()\">\n        <div class=\"form-group\">\n          <label for=\"from_date\">Start Date </label>\n          <input type=\"date\" class=\"form-control\" id=\"start-date\" placeholder=\"From Date\">\n        </div>\n        <div class=\"form-group\">\n          <label for=\"from_date\">End Date </label>\n          <input type=\"date\" class=\"form-control\" id=\"end-date\" placeholder=\"End Date\">\n        </div>\n        <div class=\"form-group\">\n          <label for=\"exampleFormControlSelect1\">Location</label>\n          <select class=\"form-control\" id=\"exampleFormControlSelect1\" (change)=\"locationChange($event.target.value)\">\n            <option value=\"Bangalore\">Bangalore</option>\n            <option value=\"Chennai\">Chennai</option>\n            <option value=\"Hyderabad\">Hyderabad</option>\n            <option value=\"Kolkata\">Kolkata</option>\n            <option value=\"Mumbai\">Mumbai</option>\n            <option value=\"NCR\">NCR</option>\n            <option value=\"Pune\">Pune</option>\n          </select>\n        </div>\n\n        <div class=\"form-group\">\n          <label for=\"exampleFormControlSelect1\">Seater</label>\n          <select class=\"form-control\" id=\"exampleFormControlSelect1\">\n            <option>10</option>\n            <option>15</option>\n            <option>20</option>\n            <option>30</option>\n            <option>50</option>\n          </select>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"configurations\">Configuration</label>\n          <select class=\"form-control\" id=\"configurations\">\n            <option *ngFor=\"let item of configurations\">{{item.configuration}}</option>\n          </select>\n        </div>\n        <button type=\"submit\" class=\"btn btn-primary\">Check Availability</button>\n      </form>\n    </div>\n    <div class=\"col-md-6\">\n      <!DOCTYPE html>\n<html>\n<head>\n\n<style>\n* {box-sizing: border-box;}\nul {list-style-type: none;}\nbody {font-family: Verdana, sans-serif;\nbackground-color: lavender;\npadding-top: 0px;\n }\n\n.month {\n    padding: 70px 25px;\n    width: 100%;\n    background: #1abc9c;\n    text-align: center;\n}\n\n.month ul {\n    margin: 0;\n    padding: 0;\n}\n\n.month ul li {\n    color: white;\n    font-size: 20px;\n    text-transform: uppercase;\n    letter-spacing: 3px;\n}\n\n.month .prev {\n    float: left;\n    padding-top: 10px;\n}\n\n.month .next {\n    float: right;\n    padding-top: 10px;\n}\n\n.weekdays {\n    margin: 0;\n    padding: 15px 0;\n    background-color: #ddd;\n\n}\n\n.weekdays li {\n    display: inline-block;\n    width: 10.6%;\n    color: #666;\n    text-align: center;\n}\n\n.days {\n    padding: 10px 0;\n    background: #eee;\n    margin: 0;\n}\n\n.days li {\n    list-style-type: none;\n    display: inline-block;\n    width: 12.6%;\n    text-align: center;\n    margin-bottom: 5px;\n    font-size:12px;\n    color: #777;\n}\n\n.days li .active {\n    padding: 5px;\n    background: #1abc9c;\n    color: white !important\n}\n.days li .tantitive {\n    padding: 5px;\n    background: orange;\n    color: white !important\n}\n.days li .cancelled {\n    padding: 5px;\n    background: red;\n    color: white !important\n}\n\n/* Add media queries for smaller screens */\n@media screen and (max-width:720px) {\n    .weekdays li, .days li {width: 13.1%;}\n}\n\n@media screen and (max-width: 420px) {\n    .weekdays li, .days li {width: 12.5%;}\n    .days li .active {padding: 2px;}\n}\n\n@media screen and (max-width: 290px) {\n    .weekdays li, .days li {width: 12.2%;}\n}\n</style>\n</head>\n<body>\n\n\n<div class=\"month\">      \n  <ul>\n    <li class=\"prev\">&#10094;</li>\n    <li class=\"next\">&#10095;</li>\n    <li>\n      June<br>\n      <span style=\"font-size:18px\">2018</span>\n    </li>\n  </ul>\n</div>\n\n<ul class=\"weekdays\">\n  <li style=\"padding-left: 10px;\">Mo</li>\n  <li style=\"padding-left: 20px;\">Tu</li>\n  <li style=\"padding-left: 40px;\">We</li>\n  <li style=\"padding-left: 50px;\">Th</li>\n  <li style=\"padding-left: 65px;\">Fr</li>\n  <li style=\"padding-left: 65px;\">Sa</li>\n  <li style=\"padding-left: 65px;\">Su</li>\n</ul>\n\n<ul class=\"days\">  \n  <li><span class=\"active\">1</span></li>\n  <li><span class=\"cancelled\">2</span></li>\n  <li><span class=\"active\">3</span></li>\n  <li>4</li>\n  <li><span class=\"active\">5</span></li>\n  <li>6</li>\n  <li><span class=\"tantitive\">7</span></li>\n  <li>8</li>\n  <li>9</li>\n  <li>10</li>\n  <li>11</li>\n  <li>12</li>\n  <li><span class=\"cancelled\">13</span></li>\n  <li>14</li>\n  <li><span class=\"tantitive\">15</span></li>\n  <li>16</li>\n  <li><span class=\"cancelled\">17</span></li>\n  <li><span class=\"active\">18</span></li>\n  <li>19</li>\n  <li>20</li>\n  <li><span class=\"active\">21</span></li>\n  <li>22</li>\n  <li><span class=\"tantitive\">23</span></li>\n  <li>24</li>\n  <li>25</li>\n  <li><span class=\"tantitive\">26</span></li>\n  <li><span class=\"tantitive\">27</span></li>\n  <li>28</li>\n  <li>29</li>\n  <li>30</li>\n  <li><span class=\"active\">31</span></li>\n</ul>\n\n</body>\n</html>\n\n\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1388,10 +1387,17 @@ var AuthService = /** @class */ (function () {
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.updatePrevBookingData = function (status) {
-        console.log(status);
+        // console.log(status)
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         return this.http.post('/api/users/updatePrevBooking', status, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.updateBooking = function (status) {
+        // console.log(status)
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/users/updateBooking', status, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getConfigurations = function () {

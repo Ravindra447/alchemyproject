@@ -8,6 +8,10 @@ const passport = require('passport');
 const User = require('../../models/User');
 
 const PrevBooking = require('../../models/prevBooking');
+
+const Available= require('../../models/available');
+
+const Configurations= require('../../models/configurations');
 const keys = require('../../config/keys');
 
 // Load Input Validation
@@ -135,4 +139,22 @@ router.get('/prevBookingData',(req,res)=>{
         return res.json({success:true,data:data})
     });
 })
+router.post('/configurations',(req,res)=>{
+    const configuration={
+
+       configuration: req.body.configuration
+    }
+    console.log(configuration);
+    Configurations.create(configuration,(err,list)=>{
+        if(err) throw err;
+
+        return res.json({success:true,data:list});
+    })
+})
+router.get('/getConfigurations',(req,res)=>{
+    Configurations.find((err,configurations)=>{
+        if(err) throw err;
+        return res.json({success:true,data:configurations});
+    })
+});
 module.exports = router;

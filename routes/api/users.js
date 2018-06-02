@@ -9,7 +9,7 @@ const User = require('../../models/User');
 
 const PrevBooking = require('../../models/prevBooking');
 
-const Available= require('../../models/available');
+const AvailableRooms= require('../../models/available');
 
 const Configurations= require('../../models/configurations');
 const keys = require('../../config/keys');
@@ -99,6 +99,9 @@ router.post('/prevBooking',(req,res)=>{
         userId:req.body.userId,
         roomId:req.body.roomId,
         roomName:req.body.roomName,
+        image:req.body.image,
+        configuration:req.body.configuration,
+        location:req.body.location,
         capacity:req.body.capacity,
         city:req.body.city,
         state:req.body.state,
@@ -132,6 +135,23 @@ router.post('/updatePrevBooking',(req,res)=>{
         }
     })
 })
+router.post('/updateBooking',(req,res)=>{
+    const status=req.body.status;
+    const id=req.body.bookingId;
+    AvailableRooms.updateOne({_id:id},{$set: {status:status}},(err,data)=>{
+        if(err){
+             throw err;
+        }
+        else{
+
+            console.log(data);
+            AvailableRooms.find((err,data)=>{
+                if(err) throw err;
+                return res.json({success:true,data:data})
+            }); 
+        }
+    })
+})
 router.get('/prevBookingData',(req,res)=>{
     PrevBooking.find((err,data)=>{
         if(err) throw err;
@@ -155,6 +175,27 @@ router.get('/getConfigurations',(req,res)=>{
     Configurations.find((err,configurations)=>{
         if(err) throw err;
         return res.json({success:true,data:configurations});
+    })
+});
+router.post('/availableRooms',(req,res)=>{
+    let availableRooms=new AvailableRooms({
+        location:req.body.location,
+        capacity:req.body.capacity,
+        configuration:req.body.configuration,
+        roomId:req.body.roomId,
+        status:req.body.status,
+        image:req.body.image,
+        contactAddress:req.body.contactAddress
+    })
+    AvailableRooms.create(availableRooms,(err,data)=>{
+        if(err) throw err;
+        return res.json({success:true,data:data});
+    })
+})
+router.get('/getAvailableRooms',(req,res)=>{
+    AvailableRooms.find((err,availableRooms)=>{
+        if(err) throw err;
+        return res.json({success:true,data:availableRooms});
     })
 });
 module.exports = router;

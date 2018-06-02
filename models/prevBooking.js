@@ -6,11 +6,14 @@ const userSchema=new mongoose.Schema({
 	roomName:String,
 	capacity:Number,
 	city:String,
+	image:String,
+	configuration:String,
 	state:String,
 	zipcode:Number,
 	fromDate:String,
 	toDate:String,
-	status:String
+	status:String,
+	location:String
 
 });
 const preBooking = module.exports=mongoose.model('previousBooking',userSchema);

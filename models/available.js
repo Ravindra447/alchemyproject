@@ -7,7 +7,9 @@ const userSchema=new mongoose.Schema({
 	roomId:String,
 	contactAddress:String,
 	status:String,
-	image:String
+	image:[],
+	startDate:String,
+	endDate:String
 });
 const available = module.exports=mongoose.model('availableRoom',userSchema);
 

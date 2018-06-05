@@ -10,8 +10,8 @@ const userSchema=new mongoose.Schema({
 	configuration:String,
 	state:String,
 	zipcode:Number,
-	fromDate:String,
-	toDate:String,
+	startDate:String,
+	endDate:String,
 	status:String,
 	location:String
 

@@ -17,6 +17,38 @@ const keys = require('../../config/keys');
 // Load Input Validation
 const validateRegisterInput = require('../../validation/register');
 
+
+//multer
+const multer = require('multer');
+const fs = require('fs');
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'uploads')
+    },
+    filename: function(req, file, cb) {
+        var datetimestamp = Date.now();
+        //cb(null,file.originalname);
+        //console.log(file);
+        cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
+    }
+}); 
+const upload = multer({
+    storage: storage
+}).single('file');
+
+router.post('/upload',(req,res,next)=>{
+    console.log(req.file);
+    upload(req,res,function(err){
+        if(err){
+            return res.status(501).json({error:err});
+        }
+        return res.json({originalname:req.file.originalname,uploadname:req.file.filename})
+    })
+})
+
+
+
 router.get('/test', (req, res) => res.json({ msg: "Users works" }));
 
 router.post('/register', (req, res) => {
@@ -63,7 +95,7 @@ router.post('/login', (req, res) => {
             if (!user) {
                 return res.status(404).json({ msg: 'email not found' });
             }
-
+            console.log(user);
             // Check password
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
@@ -72,7 +104,7 @@ router.post('/login', (req, res) => {
                         const payload = { id: user.id, name: user.name } //jwt payload
 
                         //Sign token
-                        jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                        jwt.sign(payload, keys.secretOrKey, { expiresIn: 604800  }, (err, token) => {
                             res.json({
                                 success: true,
                                 token: 'Bearer ' + token,
@@ -106,8 +138,8 @@ router.post('/prevBooking',(req,res)=>{
         city:req.body.city,
         state:req.body.state,
         zipcode:req.body.zipcode,
-        fromDate:req.body.fromDate,
-        toDate:req.body.toDate,
+        startDate:req.body.startDate,
+        endDate:req.body.endDate,
         status:req.body.status
     })
     //console.log(bookingData)
@@ -136,9 +168,10 @@ router.post('/updatePrevBooking',(req,res)=>{
     })
 })
 router.post('/updateBooking',(req,res)=>{
-    const status=req.body.status;
     const id=req.body.bookingId;
-    AvailableRooms.updateOne({_id:id},{$set: {status:status}},(err,data)=>{
+    const startDate=req.body.startDate;
+    const endDate=req.body.endDate;
+    AvailableRooms.updateOne({_id:id},{$set: {startDate:startDate,endDate:endDate}},(err,data)=>{
         if(err){
              throw err;
         }
@@ -153,31 +186,39 @@ router.post('/updateBooking',(req,res)=>{
     })
 })
 router.get('/prevBookingData',(req,res)=>{
-    PrevBooking.find((err,data)=>{
+    PrevBooking.find({}).sort({count: -1}).exec((err,data)=>{
         if(err) throw err;
 
         return res.json({success:true,data:data})
     });
 })
 router.post('/configurations',(req,res)=>{
-    const configuration={
 
-       configuration: req.body.configuration
-    }
-    console.log(configuration);
-    Configurations.create(configuration,(err,list)=>{
-        if(err) throw err;
-
-        return res.json({success:true,data:list});
+    let configuration=new Configurations({
+        location:req.body.location,
+        configuration: req.body.configuration
     })
-})
+    Configurations.findOne({'configuration':configuration.configuration},(err,list)=>{
+        if(err) throw err;
+        if(list){
+            return res.json({success:false,msg:"configuration exits"});
+        }else{
+            Configurations.create(configuration,(err,list)=>{
+                if(err) throw err;
+
+                return res.json({success:true,data:list});
+            })
+        }
+    })
+            
+});
 router.get('/getConfigurations',(req,res)=>{
     Configurations.find((err,configurations)=>{
         if(err) throw err;
         return res.json({success:true,data:configurations});
     })
 });
-router.post('/availableRooms',(req,res)=>{
+router.post('/roomResource',(req,res)=>{
     let availableRooms=new AvailableRooms({
         location:req.body.location,
         capacity:req.body.capacity,
@@ -193,7 +234,7 @@ router.post('/availableRooms',(req,res)=>{
     })
 })
 router.get('/getAvailableRooms',(req,res)=>{
-    AvailableRooms.find((err,availableRooms)=>{
+    AvailableRooms.find({}).sort({count: -1}).exec((err,availableRooms)=>{
         if(err) throw err;
         return res.json({success:true,data:availableRooms});
     })

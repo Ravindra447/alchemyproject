@@ -20,14 +20,14 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /***/ "./src/app/admin/admin.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#sticky{\n\tposition: -webkit-sticky;\n  \tposition: sticky;\n  \ttop: 100px;\n  \tz-index:1;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#cardView{\n\t\tpadding: 0px; \n\t\tmargin: 0px;\n\t}\n}"
+module.exports = "#sticky{\n\tposition: -webkit-sticky;\n  \tposition: sticky;\n  \ttop: 100px;\n  \tz-index:1;\n}\n#rmResource{\n\tbackground-color:white;\n\tpadding-bottom: 30px;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#cardView{\n\t\tpadding: 0px; \n\t\tmargin: 0px;\n\t}\n\t#sticky{\n\t\tposition: -webkit-sticky;\n\t  \tposition: sticky;\n\t  \ttop: 60px;\n\t  \tz-index:1;\n\t}\n\t#rmResource{\n\t\tmargin-top: 50px;\n\t\tbackground-color:white;\n\t\tpadding-bottom: 30px;\n\t}\n}"
 
 /***/ }),
 
 /***/ "./src/app/admin/admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\" style=\"padding-bottom:30px; margin: 0; padding-left: 0px;\">\n\t<div class=\"row\">\n\t\t<div class=\"col-md-4 col-12\" id=\"cardView\">\n\t\t\t<div class=\"card\"  id=\"sticky\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<a href=\"\" [routerLink]=\"['roomResource']\">Room Resource</a>\n\t\t\t\t\t</div><hr>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<a href=\"\" [routerLink]=\"['configResource']\">Configuration Resource</a>\n\t\t\t\t\t</div><hr>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-md-8 col-12\" style=\"background-color:white; padding-bottom: 30px; \">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n\t<!--Scroll to top-->\n\t<div class=\"scroll-to-top\" [ngClass]=\"{'show-scroll': navIsFixed}\">\n\t   \t<i class=\"fa fa-arrow-circle-up\" style=\"font-size:48px;color:red; cursor: pointer;\" (click)=\"scrollToTop()\"></i>\n\t</div>\n</div>"
+module.exports = "<div class=\"container-fluid\" style=\"padding-bottom:30px; margin: 0; padding-left: 0px;\">\n\t<div class=\"row\">\n\t\t<div class=\"col-md-4 col-12\" id=\"cardView\">\n\t\t\t<div class=\"card\"  id=\"sticky\">\n\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<a href=\"\" [routerLink]=\"['roomResource']\">Room Resource</a>\n\t\t\t\t\t</div><hr>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<a href=\"\" [routerLink]=\"['configResource']\">Configuration Resource</a>\n\t\t\t\t\t</div><hr>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-md-8 col-12\" id=\"rmResource\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n\t<!--Scroll to top-->\n\t<div class=\"scroll-to-top\" [ngClass]=\"{'show-scroll': navIsFixed}\">\n\t   \t<i class=\"fa fa-arrow-circle-up\" style=\"font-size:48px;color:red; cursor: pointer;\" (click)=\"scrollToTop()\"></i>\n\t</div>\n</div>"
 
 /***/ }),
 
@@ -277,7 +277,7 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/available-rooms/available-rooms.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#available{\n\tbackground: white;\n  \tborder: 0.5px solid lightgray;\n  \theight: 300px;\n  \twidth: 100%;\n  \tpadding: 0px;\n  \tmargin:30px 0px 30px 0px;\n}\n#staticImg{\n\theight:300px;\n\twidth: 100vw; \n\tcursor: pointer;\t\n}\n.bottomright {\n\t/*position:absolute; \n\tbottom:0;  \n\tright: 0;*/\n\tpadding: 40px;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#roomDetails{\n\t\tpadding-left: 40px;\n\t}\n\t#available{\n\t\tbackground: white;\n\t  \tborder: 0.5px solid lightgray;\n\t  \tmin-height: 500px;\n\t  \twidth: 100%;\n\t  \tpadding: 0px;\n\t  \tmargin:30px 0px 30px 0px;\n\t}\n\t\n}"
+module.exports = "#available{\n\tbackground: white;\n  \tborder: 0.5px solid lightgray;\n  \theight: 300px;\n  \twidth: 100%;\n  \tpadding: 0px;\n  \tmargin:30px 0px 30px 0px;\n}\n#staticImg{\n\theight:300px;\n\twidth: 100vw; \n\tcursor: pointer;\t\n}\n.bottomright {\n\t/*position:absolute; \n\tbottom:0;  \n\tright: 0;*/\n\tpadding: 40px;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#roomDetails{\n\t\tpadding-left: 40px;\n\t}\n\t#available{\n\t\tbackground: white;\n\t  \tborder: 0.5px solid lightgray;\n\t  \theight: 600px;\n\t  \twidth: 100%;\n\t  \tpadding: 0px;\n\t  \tmargin:30px 0px 30px 0px;\n\t}\n\t\n}"
 
 /***/ }),
 
@@ -1504,7 +1504,7 @@ var RegisterComponent = /** @class */ (function () {
 /***/ "./src/app/room-resource/room-resource.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#textHeadding{\n\ttext-align: center; \n\tcolor: blue; \n\tpadding: 40px;\n}\n"
+module.exports = "#textHeadding{\n\ttext-align: center; \n\tcolor: blue; \n\tpadding: 40px;\n}\n\n"
 
 /***/ }),
 

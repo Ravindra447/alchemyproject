@@ -20,7 +20,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /***/ "./src/app/admin/admin.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#sticky{\n\tposition: -webkit-sticky;\n  \tposition: sticky;\n  \ttop: 100px;\n  \tz-index:1;\n}\n#rmResource{\n\tbackground-color:white;\n\tpadding-bottom: 30px;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#cardView{\n\t\tpadding: 0px; \n\t\tmargin: 0px;\n\t}\n\t#sticky{\n\t\tposition: -webkit-sticky;\n\t  \tposition: sticky;\n\t  \ttop: 60px;\n\t  \tz-index:1;\n\t}\n\t#rmResource{\n\t\tmargin-top: 50px;\n\t\tbackground-color:white;\n\t\tpadding-bottom: 30px;\n\t}\n}"
+module.exports = "#sticky{\n\tposition: -webkit-sticky;\n  \tposition: sticky;\n  \ttop: 100px;\n  \tz-index:1;\n}\n#rmResource{\n\tbackground-color:white;\n\tpadding-bottom: 30px;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t\n\t#sticky{\n\t\tposition: -webkit-sticky;\n\t  \tposition: sticky;\n\t  \ttop: 60px;\n\t  \tz-index:1;\n\t}\n\t#rmResource{\n\t\tmargin-top: 70px;\n\t\tbackground-color:white;\n\t\tpadding-bottom: 30px;\n\t}\n}"
 
 /***/ }),
 
@@ -230,8 +230,10 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["a" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_9_angular2_flash_messages__["FlashMessagesModule"].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["b" /* NgbModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_29_ng2_file_upload__["FileUploadModule"],
+                __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["b" /* NgbModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["a" /* NgbModalModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_6__angular_router__["c" /* RouterModule */].forRoot([
                     { path: '', component: __WEBPACK_IMPORTED_MODULE_13__login_login_component__["a" /* LoginComponent */] },
                     { path: 'availability', component: __WEBPACK_IMPORTED_MODULE_14__search_form_search_form_component__["a" /* SearchFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
@@ -246,7 +248,7 @@ var AppModule = /** @class */ (function () {
                     { path: 'chennai', component: __WEBPACK_IMPORTED_MODULE_24__chennai_chennai_component__["a" /* ChennaiComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
                     { path: 'ncr', component: __WEBPACK_IMPORTED_MODULE_25__ncr_ncr_component__["a" /* NcrComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
                     { path: 'pune', component: __WEBPACK_IMPORTED_MODULE_26__pune_pune_component__["a" /* PuneComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
-                    { path: 'available/:location', component: __WEBPACK_IMPORTED_MODULE_27__available_rooms_available_rooms_component__["a" /* AvailableRoomsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
+                    { path: 'available', component: __WEBPACK_IMPORTED_MODULE_27__available_rooms_available_rooms_component__["a" /* AvailableRoomsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]] },
                     {
                         path: 'admin',
                         component: __WEBPACK_IMPORTED_MODULE_31__admin_admin_component__["a" /* AdminComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_auth_guard__["a" /* AuthGuard */]],
@@ -277,14 +279,14 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/available-rooms/available-rooms.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#available{\n\tbackground: white;\n  \tborder: 0.5px solid lightgray;\n  \theight: 300px;\n  \twidth: 100%;\n  \tpadding: 0px;\n  \tmargin:30px 0px 30px 0px;\n}\n#staticImg{\n\theight:300px;\n\twidth: 100vw; \n\tcursor: pointer;\t\n}\n.bottomright {\n\t/*position:absolute; \n\tbottom:0;  \n\tright: 0;*/\n\tpadding: 40px;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#roomDetails{\n\t\tpadding-left: 40px;\n\t}\n\t#available{\n\t\tbackground: white;\n\t  \tborder: 0.5px solid lightgray;\n\t  \theight: 600px;\n\t  \twidth: 100%;\n\t  \tpadding: 0px;\n\t  \tmargin:30px 0px 30px 0px;\n\t}\n\t\n}"
+module.exports = "#available{\n\tbackground: white;\n  \tborder: 0.5px solid lightgray;\n  \theight: 300px;\n  \twidth: 100%;\n  \tpadding: 0px;\n  \tmargin:30px 0px 30px 0px;\n}\n#companyName{\n  word-wrap: break-word; \n  padding: 2px;\n  cursor: pointer;\n  color:#A569BD;\n}\n#companyName:hover{\n  text-decoration: underline;\n}\n.list{\n  border-radius: 5px;\n  border: 0.5px solid lightgray;\n  height: 420px;\n  width: 100%;\n  margin:30px 0px 0px 0px;\n  text-align: center;\n  background: white;\n}\n.filters{\n\tz-index:1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 100px;\n}\n#noRmAvailable{\n\t/*border-radius: 5px;*/\n\tpadding: 50px;\n  \tborder: 0.5px solid lightgray;\n}\n#noImg{\n  width: 100vw; \n  background:lavender;opacity: 0.7;\n  height:200px;\n}\n#staticImg{\n\theight:300px;\n\twidth: 100vw; \n\tcursor: pointer;\t\n}\n.bottomright {\n\t/*position:absolute; \n\tbottom:0;  \n\tright: 0;*/\n\tpadding: 40px;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#roomDetails{\n\t\tpadding-left: 40px;\n\t}\n\t#available{\n\t\tbackground: white;\n\t  \tborder: 0.5px solid lightgray;\n\t  \theight: 600px;\n\t  \twidth: 100%;\n\t  \tpadding: 0px;\n\t  \tmargin:30px 0px 30px 0px;\n\t}\n\t\n}"
 
 /***/ }),
 
 /***/ "./src/app/available-rooms/available-rooms.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-12\">\n\t<div class=\"row\">\n\t\t<div class=\"col-6\">\n\t\t\t<div class=\"form-group\">\n\t          <label for=\"from_date\">Start Date </label>\n\t          <input type=\"date\" class=\"form-control\" id=\"start-date\" placeholder=\"From Date\" [(ngModel)]=\"startDate\" name=\"startDate\">\n\t        </div>    \n\t\t</div>\n\t\t<div class=\"col-6\">\n\t\t\t<div class=\"form-group\">\n\t          <label for=\"from_date\">End Date </label>\n\t          <input type=\"date\" class=\"form-control\" id=\"end-date\" placeholder=\"End Date\" [(ngModel)]=\"endDate\" name=\"endDate\">\n\t        </div>\n\t\t</div>\n\t\t<div class=\"col-12\" id=\"available\" *ngFor=\"let item of availableRooms | availableRoom:location; let i=index\">\n\t\t\t<div class=\"row\" *ngIf=\"item!==-1\">\n\t\t\t\t<div class=\"col-12 col-md-5\" id=\"staticImg\" *ngFor=\"let subItem of item.image \">\n\t\t\t\t\t<!-- <img src=\"http://localhost:5000/static/{{subItem.uploadname}}\" alt=\"\" width=\"100%\"  height=\"100%\"> -->\n\t\t\t\t\t<img src=\"static/{{subItem.uploadname}}\" alt=\"\" width=\"100%\"  height=\"100%\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-12 col-md-7\" id=\"roomDetails\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-6\" style=\"margin-top: 10px;\">\n\t\t\t\t\t\t\t<h3 style=\"color:#A569BD;\"><strong>{{item.location}}</strong></h3>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div align=\"center\" class=\"col-6\" style=\"margin-top: 10px;\">\n\t\t\t\t\t\t\t<h6 style=\"color:green;\"><strong>{{item.status}}</strong></h6>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\">\n\t\t\t\t\t\t\t<strong>Room Id :</strong> {{item.roomId}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\">\n\t\t\t\t\t\t\t<strong>Capacity :</strong> {{item.capacity}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\" style=\"word-wrap: break-word;\">\n\t\t\t\t\t\t\t<strong>Contact Address :</strong>{{item.contactAddress}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\" style=\"word-wrap: break-word;\" *ngIf=\"item.startDate\">\n\t\t\t\t\t\t\t<strong>booked dates :</strong>{{item.startDate}} >> {{item.endDate}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\" style=\"margin-top: 10px;\">\n\t\t\t\t\t\t\t<a href=\"#demo{{i}}\" data-toggle=\"collapse\" style=\"font-size: 14px; text-decoration: underline; color: green;\">View more Information</a>\n\t\t\t\t\t\t\t<div id=\"demo{{i}}\" class=\"collapse\">\n    \t\t\t\t\t\t\t<!-- <div style=\"font-size: 14px;\">\n\t\t\t\t\t\t\t\t\t<strong>Description : </strong> description\n    \t\t\t\t\t\t\t</div> -->\n    \t\t\t\t\t\t\t<div style=\"font-size: 14px;\">\n\t\t\t\t\t\t\t\t\t<strong>Configuration : </strong>{{item.configuration}}\n    \t\t\t\t\t\t\t</div>\n    \t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12 bottomright\" align=\"end\" style=\"bottom: 0px;\">\n\t\t\t\t\t\t\t<button class=\"btn btn-primary\" (click)=\"bookRoom(item)\">Book Room</button>\n\t\t\t\t\t\t\t<button class=\"btn\" style=\"background-color:orange;\" (click)=\"tentativeRoom(item)\">Tentative</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div align=\"center\" *ngIf=\"item ===-1\">\n\t\t\t\t<h4 style=\"padding: 100px;\">-- NO Rooms Availble In {{location}} --</h4>\n\t\t\t</div>\n\t\t</div>\t\n\t</div>\n\t\t\n</div>\n"
+module.exports = "<div class=\"col-12\">\n\t<div class=\"row\">\n\t\t<div class=\"col-12 col-md-3\">\n\t\t\t<div class=\"filters\">\n\t\t\t\t<div align=\"end\">\n\t\t\t\t\t<h6 style=\"color:red; cursor: pointer; font-size: 14px; text-decoration: underline;\" (click)=\"clear()\">clear</h6>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"form-group\">\n\t\t          <label for=\"from_date\">Start Date </label>\n\t\t          <div class=\"input-group\">\n\t\t            <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" name=\"startD\" [(ngModel)]=\"startD\" ngbDatepicker #d=\"ngbDatepicker\" (ngModelChange)=\"valuechange($event)\" [minDate]=\"minDate\" (click)=\"d.toggle()\" readonly>\n\t\t            <div class=\"input-group-append\">\n\t\t              <button class=\"input-group-addon\" (click)=\"d.toggle()\" type=\"button\"> <img src=\"../../assets/images/ngb.png\" style=\"width: 1.2rem; height: 1rem; cursor: pointer;\"/> </button>\n\t\t            </div>\n\t\t          </div>\n\t\t        </div>  \n\t\t        <div class=\"form-group\">\n\t\t          <label for=\"from_date\">End Date </label>\n\t\t          <div class=\"input-group\">\n\t\t            <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" name=\"endD\" [(ngModel)]=\"endD\" ngbDatepicker #da=\"ngbDatepicker\" (ngModelChange)=\"valuechange1($event)\" [minDate]=\"minDate\" (click)=\"da.toggle()\" readonly>\n\t\t            <div class=\"input-group-append\">\n\t\t              <button class=\"input-group-addon\" (click)=\"da.toggle()\" type=\"button\"> <img src=\"../../assets/images/ngb.png\" style=\"width: 1.2rem; height: 1rem; cursor: pointer;\"/> </button>\n\t\t            </div>\n\t\t          </div>\n\t\t        </div>  \n\t\t        <div class=\"form-group\">\n\t            \t<label for=\"exampleFormControlSelect1\">Seater</label>\n\t\t            <select  class=\"form-control\" id=\"exampleFormControlSelect1\" [(ngModel)]=\"capacity\" name=\"capacity\" readonly>\n\t\t\t\t\t <option [ngValue]=\"null\" >Select Category</option>\n\t\t              <option *ngFor=\"let item of capacityList\">{{item}}</option>\n\t\t            </select>\n\t        \t</div>\n\t\t        <div class=\"form-group\">\n\t\t            <label for=\"exampleFormControlSelect1\">Location</label>\n\t\t            <select class=\"form-control\" id=\"exampleFormControlSelect1\" [(ngModel)]=\"location\" name=\"location\" readonly>\n\t\t            \t<option [ngValue]=\"null\" hidden >select location</option>\n\t\t            \t<option *ngFor=\"let item of locationsList\">{{item}}</option>\n\t\t            </select>  \n\t\t        </div>\n\t\t        <div class=\"form-group\">\n\t\t            <label for=\"configurations\">Configuration</label>\n\t\t            <select class=\"form-control\" id=\"configurations\" [(ngModel)]=\"configuration\" name=\"configuration\" readonly>\n\t\t              <option [ngValue]=\"null\">Select Configuration</option>\n\t\t              <option *ngFor=\"let item of configurations | configuration:location;\">{{item.configuration}}</option>\n\t\t            </select>\n\t\t        </div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-12 col-md-9\" style=\"padding-bottom: 30px;\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-4 col-12\" *ngFor=\"let item of availableRooms | availableRoom:location:startDate:endDate:capacity:configuration; let i=index\">\n\t\t\t\t\t<div class=\"list row\" *ngIf=\"item !== -1\">\n            \t\t\t<div align=\"start\" *ngFor=\"let subItem of item.image | slice:0:1;\" style=\"width: 100vw; cursor: pointer;\">\n              \t\t\t\t<!-- <img src=\"http://localhost:5000/static/{{subItem.uploadname}}\" class=\"rounded\" width=\"100%\"  height=\"200\"> -->\n              \t\t\t\t <img src=\"static/{{subItem.uploadname}}\" class=\"rounded\" width=\"100%\"  height=\"200\">            \n              \t\t\t</div>\n            \t\t\t<div align=\"start\" *ngIf=\"!item.image.length>0\" id=\"noImg\">\n\t\t\t              <div align=\"center\" style=\"padding-top:90px; \">--No Preview--</div>\n\t\t\t            </div>\n\t\t\t            <div class=\"col-12\">\n              \t\t\t\t<h5 id=\"companyName\">\n                \t\t\t\t<strong>{{item.roomId}}</strong>\n              \t\t\t\t</h5>\n            \t\t\t</div>\n            \t\t\t<div align=\"left\" class=\"col-12\" style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t<strong>Location :</strong> {{item.location}}\n\t\t\t\t\t\t</div>\n            \t\t\t<div align=\"left\" class=\"col-12\" style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t<strong>Capacity :</strong> {{item.capacity}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div align=\"left\" class=\"col-12\" style=\"word-wrap: break-word;\" style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t<strong>Contact Address : </strong>{{item.contactAddress}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div align=\"left\" class=\"col-12\">\n\t\t\t\t\t\t\t<a href=\"#demo{{i}}\" data-toggle=\"collapse\" style=\"font-size: 12px; text-decoration: underline; color: green;\">View more Information</a>\n\t\t\t\t\t\t\t<div id=\"demo{{i}}\" class=\"collapse\">\n\t    \t\t\t\t\t\t<div style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t\t\t<strong>Configuration : </strong>{{item.configuration}}\n\t    \t\t\t\t\t\t</div>\n\t    \t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\" align=\"end\" >\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-primary\" (click)=\"bookRoom(item)\">Book Room</button>\n\t\t\t\t\t\t\t<button class=\"btn btn-sm \" style=\"background-color:orange;\" (click)=\"tentativeRoom(item)\">Tentative</button>\n\t\t\t\t\t\t</div>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"col-12\" *ngFor=\"let item of availableRooms | availableRoom:location:startDate:endDate:capacity:configuration;\">\n\t          \t<div *ngIf=\"item === -1\">\n\t          \t\t<div id=\"noRmAvailable\">\n\t          \t\t\t<div align=\"center\">\n\t\t\t\t\t\t\t<h4>No Rooms Available Yet ! {{location}} With this Specifications</h4>\n\t\t\t\t\t\t</div>\n\t          \t\t</div>\n\t\t            \t\n\t          \t</div>\n        \t</div>\n\t\t</div>\t\n\t</div>\t\t\n</div>\n"
 
 /***/ }),
 
@@ -314,42 +316,78 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var AvailableRoomsComponent = /** @class */ (function () {
-    function AvailableRoomsComponent(authService, router, flashMessageService, activatedRoute, datePipe) {
+    function AvailableRoomsComponent(authService, router, flashMessageService, activatedRoute, datepipe) {
         this.authService = authService;
         this.router = router;
         this.flashMessageService = flashMessageService;
         this.activatedRoute = activatedRoute;
-        this.datePipe = datePipe;
+        this.datepipe = datepipe;
+        this.capacity = null;
+        this.location = "Bangalore";
+        this.configuration = null;
+        this.minDate = { year: new Date().getFullYear(), month: new Date().getMonth() + 1, day: new Date().getDate() };
     }
     AvailableRoomsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.activatedRoute.paramMap.subscribe(function (params) {
-            //console.log(params.get('name'));
-            //console.log(params.get('details'));
-            _this.location = params.get('location');
-            // console.log(this.location);
+        this.capacityList = [10, 15, 20, 25, 30, 40, 50];
+        this.locationsList = ["Bangalore", "Chennai", "Hyderabad", "Kolkata", "Mumbai", "NCR", "Pune"];
+        this.authService.getConfigurations().subscribe(function (configuration) {
+            _this.configurations = configuration.data;
+            // console.log(this.configurations);
         });
+        // this.activatedRoute.paramMap.subscribe(params => {
+        //    this.location = params.get('location');
+        //  });
         if (localStorage.getItem('user') != undefined) {
             this.UserData = JSON.parse(localStorage.getItem('user'));
             //console.log(this.UserData);
             this.userId = this.UserData._id;
             // console.log(this.userId);
         }
-        if (localStorage.getItem('checkData') != undefined) {
-            this.checkData = localStorage.getItem('checkData');
-            this.startDate = JSON.parse(this.checkData).startDate;
-            this.endDate = JSON.parse(this.checkData).endDate;
-            // console.log(JSON.parse(this.checkData).startDate); 
-        }
+        // if(localStorage.getItem('checkData')!=undefined){
+        // 	this.checkData=localStorage.getItem('checkData');
+        // 	this.startDate=JSON.parse(this.checkData).startDate;
+        // 	this.endDate=JSON.parse(this.checkData).endDate;
+        // 	this.location=JSON.parse(this.checkData).location;
+        // 	// console.log(JSON.parse(this.checkData).startDate); 
+        // }
         this.authService.getAvailableRooms().subscribe(function (availableRooms) {
             _this.availableRooms = availableRooms.data;
             // console.log(this.availableRooms);
         });
     };
+    // locationChange(location){
+    // 	this.location=location;
+    // }
+    // configurationChange(configuration){
+    // 	if(configuration!=="Select Configuration"){
+    // 		this.configuration=configuration;
+    //  console.log(configuration);
+    // 	}
+    // }
+    AvailableRoomsComponent.prototype.valuechange = function (newValue) {
+        this.startDate1 = this.datepipe.transform(newValue.year + "-" + newValue.month + "-" + newValue.day, 'yyyy-MM-dd');
+        this.endD = null;
+    };
+    AvailableRoomsComponent.prototype.valuechange1 = function (newValue) {
+        var _this = this;
+        var enddate = this.datepipe.transform(newValue.year + "-" + newValue.month + "-" + newValue.day, 'yyyy-MM-dd');
+        if (this.startDate1 == undefined || this.startDate1 > enddate) {
+            this.flashMessageService.show('End date should be higher', { cssClass: 'alert-danger', timeout: 3000 });
+            setTimeout(function () {
+                _this.clear();
+            }, 1000);
+        }
+        else {
+            this.startDate = this.startDate1;
+            this.endDate = enddate;
+        }
+    };
     AvailableRoomsComponent.prototype.bookRoom = function (item) {
         var _this = this;
+        console.log(item);
         var bookDetails = {
-            bookingId: item._id,
+            rmResourceId: item._id,
             userId: this.userId,
             roomId: item.roomId,
             capacity: item.capacity,
@@ -369,11 +407,12 @@ var AvailableRoomsComponent = /** @class */ (function () {
                 if (data.success) {
                     _this.flashMessageService.show('Your Booking has Success', { cssClass: 'alert-success', timeout: 3000 });
                     localStorage.setItem('checkData', null);
+                    _this.clear();
                 }
             });
             this.authService.updateBooking(bookDetails).subscribe(function (available) {
                 _this.availableRooms = available.data;
-                localStorage.setItem('checkData', null);
+                // localStorage.setItem('checkData',null);
             });
         }
     };
@@ -399,6 +438,7 @@ var AvailableRoomsComponent = /** @class */ (function () {
             this.authService.bookingRooms(bookDetails).subscribe(function (data) {
                 if (data.success) {
                     _this.flashMessageService.show('Your Booking has been Pending', { cssClass: 'alert-success', timeout: 3000 });
+                    _this.clear();
                 }
             });
             this.authService.updateBooking(bookDetails).subscribe(function (available) {
@@ -406,6 +446,14 @@ var AvailableRoomsComponent = /** @class */ (function () {
                 // console.log(available);
             });
         }
+    };
+    AvailableRoomsComponent.prototype.clear = function () {
+        this.startD = null;
+        this.endD = null;
+        this.endDate = null;
+        this.startDate = null;
+        this.capacity = null;
+        this.configuration = null;
     };
     AvailableRoomsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -1071,22 +1119,50 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
 var AvailableRoomPipe = /** @class */ (function () {
-    function AvailableRoomPipe(datePipe) {
-        this.datePipe = datePipe;
+    function AvailableRoomPipe() {
     }
-    AvailableRoomPipe.prototype.transform = function (items, location, status) {
-        var _this = this;
+    //GETTING ERROR IN D.TS
+    // constructor(private datePipe:DatePipe){
+    // }
+    AvailableRoomPipe.prototype.transform = function (items, location, startDate, endDate, capacity, configuration) {
+        var datePipe = new __WEBPACK_IMPORTED_MODULE_1__angular_common__["DatePipe"]("en-US");
         if (items) {
             var data = items.filter(function (item) {
-                if (location) {
+                // return item;
+                if (location && !startDate && !endDate && !capacity && !configuration) {
                     //return item.location==location;
-                    return ((_this.datePipe.transform(new Date, item.endDate) < _this.datePipe.transform(new Date, 'yyyy-MM-dd') || _this.datePipe.transform(new Date, item.startDate) > _this.datePipe.transform(new Date, 'yyyy-MM-dd')) && item.location == location);
+                    return ((datePipe.transform(new Date(), item.endDate) < datePipe.transform(new Date(), 'yyyy-MM-dd') || datePipe.transform(new Date(), item.startDate) > datePipe.transform(new Date(), 'yyyy-MM-dd')) && item.location == location);
+                }
+                if (location && !startDate && !endDate && capacity && !configuration) {
+                    //return item.location==location;
+                    return ((datePipe.transform(new Date(), item.endDate) < datePipe.transform(new Date(), 'yyyy-MM-dd') || datePipe.transform(new Date(), item.startDate) > datePipe.transform(new Date(), 'yyyy-MM-dd')) && item.location == location && item.capacity == capacity);
+                }
+                if (location && !startDate && !endDate && !capacity && configuration) {
+                    //return item.location==location;
+                    return ((datePipe.transform(new Date(), item.endDate) < datePipe.transform(new Date(), 'yyyy-MM-dd') || datePipe.transform(new Date(), item.startDate) > datePipe.transform(new Date(), 'yyyy-MM-dd')) && item.location == location && item.configuration == configuration);
+                }
+                if (location && !startDate && !endDate && capacity && configuration) {
+                    //return item.location==location;
+                    return ((datePipe.transform(new Date(), item.endDate) < datePipe.transform(new Date(), 'yyyy-MM-dd') || datePipe.transform(new Date(), item.startDate) > datePipe.transform(new Date(), 'yyyy-MM-dd')) && item.location == location && item.configuration == configuration && item.capacity == capacity);
+                }
+                if (location && startDate && endDate && !capacity && !configuration) {
+                    return ((datePipe.transform(startDate, 'yyyy-MM-dd') > datePipe.transform(new Date(), item.endDate) ||
+                        datePipe.transform(endDate, 'yyyy-MM-dd') < datePipe.transform(new Date(), item.startDate)) && item.location == location);
+                }
+                if (location && startDate && endDate && capacity && !configuration) {
+                    return ((datePipe.transform(startDate, 'yyyy-MM-dd') > datePipe.transform(new Date(), item.endDate) ||
+                        datePipe.transform(endDate, 'yyyy-MM-dd') < datePipe.transform(new Date(), item.startDate)) && item.location == location && item.capacity == capacity);
+                }
+                if (location && startDate && endDate && !capacity && configuration) {
+                    return ((datePipe.transform(startDate, 'yyyy-MM-dd') > datePipe.transform(new Date(), item.endDate) ||
+                        datePipe.transform(endDate, 'yyyy-MM-dd') < datePipe.transform(new Date(), item.startDate)) && item.location == location && item.configuration == configuration);
+                }
+                if (location && startDate && endDate && capacity && configuration) {
+                    return ((datePipe.transform(startDate, 'yyyy-MM-dd') > datePipe.transform(new Date(), item.endDate) ||
+                        datePipe.transform(endDate, 'yyyy-MM-dd') < datePipe.transform(new Date(), item.startDate)) && item.location == location && item.capacity == capacity && item.configuration == configuration);
                 }
             });
             if (data.length === 0) {
@@ -1098,8 +1174,7 @@ var AvailableRoomPipe = /** @class */ (function () {
     AvailableRoomPipe = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
             name: 'availableRoom'
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common__["DatePipe"]])
+        })
     ], AvailableRoomPipe);
     return AvailableRoomPipe;
 }());
@@ -1198,14 +1273,14 @@ var PrevBookingPipe = /** @class */ (function () {
 /***/ "./src/app/previous-booking/previous-booking.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#myBookings{\n  /*border-radius: 5px;\n  border: 0.5px solid gray;*/\n /* background: lavender;opacity: 0.7;*/\n padding-bottom: 40px;\n}\n#myHedding{\n\t\n  /*background: lavender;opacity: 0.7; */\n  padding-top: 5px;\n}\n#myBookinItems{\n\t/*border-radius: 5px;*/\n\tbackground: white;\n  \tborder: 0.5px solid lightgray;\n}\n#myBookinItems1{\n\t/*border-radius: 5px;*/\n\tpadding: 20px;\n  \tborder: 0.5px solid lightgray;\n}\n#rmName{\n\tpadding: 10px;\n  \tbackground: lavender;opacity: 0.7; \n}\n#selectedItems:active{\n\tborder-bottom-style: solid;\n    border-bottom-color: coral;\n}\n#selectedItems{\n\tcursor: pointer;\n\tmargin-right: 15px;\n\tfloat: right;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#selectedItems{\n\t\tfloat: none;\n\t}\n}"
+module.exports = "#myBookings{\n  /*border-radius: 5px;\n  border: 0.5px solid gray;*/\n /* background: lavender;opacity: 0.7;*/\n padding-bottom: 40px;\n}\n#myHedding{\n\t\n  /*background: lavender;opacity: 0.7; */\n  padding-top: 5px;\n}\n#myBookinItems{\n\t/*border-radius: 5px;*/\n\tbackground: white;\n  \tborder: 0.5px solid lightgray;\n}\n#myBookinItems1{\n\t/*border-radius: 5px;*/\n\tpadding: 20px;\n  \tborder: 0.5px solid lightgray;\n}\n#rmName{\n\tpadding: 10px;\n  \tbackground: lavender;opacity: 0.7; \n}\n#selectedItems:active{\n\tborder-bottom-style: solid;\n    border-bottom-color: coral;\n}\n#selectedItems{\n\tcursor: pointer;\n\tmargin-right: 15px;\n\tfloat: right;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#selectedItems{\n\t\tfloat: none;\n\t}\n\t#detailsList{\n\t\tmargin-top: 20px;\n\t\tpadding:0px;\n\t}\n}"
 
 /***/ }),
 
 /***/ "./src/app/previous-booking/previous-booking.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n\t<div class=\"col-12\" id=\"myBookings\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-12 col-md-6\" id=\"myHedding\">\n\t\t\t\t<h5 style=\"color:blue;\"><strong>My Bookings</strong></h5>\t\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"col-12 col-md-6\">\n\t\t\t\t<a id=\"selectedItems\" (click)=\"itemClick('Cancelled')\" style=\"color:red;\"> Cancelled</a>\n\t\t\t\t<a id=\"selectedItems\" (click)=\"itemClick('Tentative')\" style=\"color:orange;\"> Tentative</a>\n\t\t\t\t<a id=\"selectedItems\" style=\"color:green;\" (click)=\"itemClick('Confirmed')\" value=\"confirmed\">Confirmed</a>\n\t\t\t\t<a id=\"selectedItems\" style=\"color:blue;\" (click)=\"itemClick()\" value=\"confirmed\">Bookings</a>\t\n\t\t\t</div>\n\t\t\t<div class=\"col-12\" *ngFor=\"let item of BookingData | prevBooking:userId : status;\" style=\"margin-top:10px;\">\n\t\t\t\t<div class=\"col-12\" id=\"myBookinItems\" *ngIf=\"item !== -1\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-12\" id=\"rmName\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t<strong style=\"color:#A569BD;\">Room Id : {{item.roomId}}</strong>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div align=\"end\" class=\"col-6\" *ngIf=\"\t\titem.status=='Tentative'\" >\n\t\t\t\t\t\t\t\t\t<strong style=\"color:orange;\">{{item.status}}</strong>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div align=\"end\" class=\"col-6\" *ngIf=\"\t\titem.status=='Confirmed'\" >\n\t\t\t\t\t\t\t\t\t<strong style=\"color:green;\">{{item.status}}</strong>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div align=\"end\" class=\"col-6\" *ngIf=\"\t\titem.status=='Cancelled'\" >\n\t\t\t\t\t\t\t\t\t<strong style=\"color:red;\">{{item.status}}</strong>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12 row\" style=\"padding: 20px;\">\n\t\t\t\t\t\t\t\t<!-- <strong *ngIf=\"item.fromDate\">Date of Booking - </strong>\n\t\t\t\t\t\t\t\t<div *ngIf=\"item.fromDate\"> {{item.fromDate}}</div>\n\t\t\t\t\t\t\t\t<div *ngIf=\"item.toDate\">- {{item.toDate}}</div> -->\n\t\t\t\t\t\t\t<div class=\"col-4\" *ngFor=\"let subItem of item.image\">\n\t\t\t\t\t\t\t\t<!-- <img src=\"http://localhost:5000/static/{{subItem.uploadname}}\" alt=\"\" width=\"100%\"  height=\"100%\"> -->\n\t\t\t\t\t\t\t\t<img src=\"static/{{subItem.uploadname}}\" alt=\"\" width=\"100%\"  height=\"100%\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-8\">\n\t\t\t\t\t\t\t\t<div class=\"col-12\">\n\t\t\t\t\t\t\t\t\t<strong>Configuration :</strong>{{item.configuration}}\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-12\">\n\t\t\t\t\t\t\t\t\t<strong>Capacity :</strong>{{item.capacity}}\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-12\">\n\t\t\t\t\t\t\t\t\t<strong>Location :</strong>{{item.location}}\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-12\" *ngIf=\"item.startDate\">\n\t\t\t\t\t\t\t\t\t<strong>Date Of Bokking :</strong>{{item.startDate}} - {{item.endDate}}\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-12\" align=\"end\" *ngIf=\"item.status=='Tentative'\" style=\"padding-top: 40px;\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn btn-primary\" (click)=\"confirmBooking(item._id)\">Confirm</button>\n\t\t\t\t\t\t\t\t\t<button class=\"btn btn-danger\" (click)=\"cancelBooking(item._id)\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-12\" id=\"myBookinItems1\"  *ngIf=\"item === -1\">\n\t\t\t\t\t<div align=\"center\">\n\t\t\t\t\t\t<h4>No Booking Yet ! {{status}}</h4>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- <div class=\"col-12\">\n\t\t\t\t<div class=\"col-12\" id=\"myBookinItems\">\n\t\t\t\t\t<div align=\"center\" *ngIf=\"BookingDataLength\">\n\t\t\t\t\t\t<h3 style=\"padding: 20px;\">No Bookings Yet!</h3>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\t -->\n\t\t</div>\n\t\t\t\n\t</div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n\t<div class=\"col-12\" id=\"myBookings\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-12 col-md-6\" id=\"myHedding\">\n\t\t\t\t<h5 style=\"color:blue;\"><strong>My Bookings</strong></h5>\t\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"col-12 col-md-6\">\n\t\t\t\t<a id=\"selectedItems\" (click)=\"itemClick('Cancelled')\"> Cancelled</a>\n\t\t\t\t<a id=\"selectedItems\" (click)=\"itemClick('Tentative')\"> Tentative</a>\n\t\t\t\t<a id=\"selectedItems\" (click)=\"itemClick('Confirmed')\" value=\"confirmed\">Confirmed</a>\n\t\t\t\t<a id=\"selectedItems\" (click)=\"itemClick()\" value=\"confirmed\">Bookings</a>\t\n\t\t\t</div>\n\t\t\t<div class=\"col-12\" *ngFor=\"let item of BookingData | prevBooking:userId : status;\" style=\"margin-top:10px;\">\n\t\t\t\t<div class=\"col-12\" id=\"myBookinItems\" *ngIf=\"item !== -1\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-12\" id=\"rmName\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t<strong style=\"color:#A569BD;\">Room Id : {{item.roomId}}</strong>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div align=\"end\" class=\"col-6\" *ngIf=\"\t\titem.status=='Tentative'\" >\n\t\t\t\t\t\t\t\t\t<strong style=\"color:orange;\">{{item.status}}</strong>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div align=\"end\" class=\"col-6\" *ngIf=\"\t\titem.status=='Confirmed'\" >\n\t\t\t\t\t\t\t\t\t<strong style=\"color:green;\">{{item.status}}</strong>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div align=\"end\" class=\"col-6\" *ngIf=\"\t\titem.status=='Cancelled'\" >\n\t\t\t\t\t\t\t\t\t<strong style=\"color:red;\">{{item.status}}</strong>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12 row\" style=\"padding: 20px;\">\n\t\t\t\t\t\t\t<div class=\"col-12 col-md-4\" *ngFor=\"let subItem of item.image\">\n\t\t\t\t\t\t\t\t<!-- <img src=\"http://localhost:5000/static/{{subItem.uploadname}}\" alt=\"\" width=\"100%\"  height=\"160\"> -->\n\t\t\t\t\t\t\t\t<img src=\"static/{{subItem.uploadname}}\" alt=\"\" width=\"100%\" height=\"160\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-12 col-md-8\" id=\"detailsList\">\n\t\t\t\t\t\t\t\t<div class=\"col-12\" style=\"font-size: 14px;\">\n\t\t\t\t\t\t\t\t\t<strong>Configuration :</strong>{{item.configuration}}\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-12\" style=\"font-size: 14px;\">\n\t\t\t\t\t\t\t\t\t<strong>Capacity :</strong>{{item.capacity}}\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-12\" style=\"font-size: 14px;\">\n\t\t\t\t\t\t\t\t\t<strong>Location :</strong>{{item.location}}\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-12\" *ngIf=\"item.startDate\" style=\"font-size: 14px;\">\n\t\t\t\t\t\t\t\t\t<strong>Date Of Booking :</strong>{{item.startDate}} - {{item.endDate}}\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-12\" align=\"end\" *ngIf=\"item.status=='Tentative'\" style=\"padding-top: 40px;\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn btn-primary\" (click)=\"confirmBooking(item._id)\">Confirm</button>\n\t\t\t\t\t\t\t\t\t<button class=\"btn btn-danger\" (click)=\"cancelBooking(item)\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-12\" align=\"end\" *ngIf=\"item.status=='Confirmed' && item.startDate>toDay\" style=\"padding-top: 40px;\">\n\t\t\t\t\t\t\t\t\t<button class=\"btn btn-danger\" (click)=\"cancelBooking(item)\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-12\" id=\"myBookinItems1\"  *ngIf=\"item === -1\">\n\t\t\t\t\t<div align=\"center\">\n\t\t\t\t\t\t<h4>No Booking Yet ! {{status}}</h4>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- <div class=\"col-12\">\n\t\t\t\t<div class=\"col-12\" id=\"myBookinItems\">\n\t\t\t\t\t<div align=\"center\" *ngIf=\"BookingDataLength\">\n\t\t\t\t\t\t<h3 style=\"padding: 20px;\">No Bookings Yet!</h3>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\t -->\n\t\t</div>\n\t\t\t\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -1217,8 +1292,9 @@ module.exports = "<div class=\"container-fluid\">\n\t<div class=\"col-12\" id=\"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages__ = __webpack_require__("./node_modules/angular2-flash-messages/module/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1232,14 +1308,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PreviousBookingComponent = /** @class */ (function () {
-    function PreviousBookingComponent(authService, router, flashMessageService) {
+    function PreviousBookingComponent(authService, router, flashMessageService, datePipe) {
         this.authService = authService;
         this.router = router;
         this.flashMessageService = flashMessageService;
+        this.datePipe = datePipe;
     }
     PreviousBookingComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.toDay = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+        console.log(this.toDay);
         if (localStorage.getItem('user') != undefined) {
             this.UserData = JSON.parse(localStorage.getItem('user'));
             //console.log(this.UserData);
@@ -1270,15 +1350,22 @@ var PreviousBookingComponent = /** @class */ (function () {
     };
     PreviousBookingComponent.prototype.cancelBooking = function (item) {
         var _this = this;
+        console.log(item);
         var status = {
-            bookingId: item,
-            status: 'Cancelled'
+            bookingId: item._id,
+            rmResourceId: item.rmResourceId,
+            status: 'Cancelled',
+            startDate: '',
+            endDate: ''
         };
         this.authService.updatePrevBookingData(status).subscribe(function (UpdateBooking) {
             if (UpdateBooking.success) {
-                _this.flashMessageService.show('Your Booking has been Cancelled', { cssClass: 'alert-success', timeout: 3000 });
+                _this.flashMessageService.show('Your Booking has been Cancelled', { cssClass: 'alert-danger', timeout: 3000 });
             }
             _this.BookingData = UpdateBooking.data;
+        });
+        this.authService.updateBooking(status).subscribe(function (available) {
+            // localStorage.setItem('checkData',null);
         });
     };
     PreviousBookingComponent = __decorate([
@@ -1287,9 +1374,10 @@ var PreviousBookingComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/previous-booking/previous-booking.component.html"),
             styles: [__webpack_require__("./src/app/previous-booking/previous-booking.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
-            __WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages__["FlashMessagesService"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages__["FlashMessagesService"],
+            __WEBPACK_IMPORTED_MODULE_2__angular_common__["DatePipe"]])
     ], PreviousBookingComponent);
     return PreviousBookingComponent;
 }());
@@ -1511,7 +1599,7 @@ module.exports = "#textHeadding{\n\ttext-align: center; \n\tcolor: blue; \n\tpad
 /***/ "./src/app/room-resource/room-resource.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n\t<div class=\"col-12\">\n\t\t<h2 id=\"textHeadding\"><strong>Room Resource</strong></h2>\n\t</div>\n\t<div class=\"offset-md-3 col-md-6 col-12\">\n\t\t<form name=\"myForm\">\n\t\t\t<div class=\"form-group\">\n\t\t    \t<label for=\"userId\" style=\"color: #000\">Room Id </label>\n\t\t    \t<input type=\"text\" class=\"form-control\" name=\"roomId\" [(ngModel)]=\"roomId\" placeholder=\"Enter Room Id\" required>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t          <label for=\"exampleFormControlSelect1\">Seater</label>\n\t          <select class=\"form-control\" id=\"exampleFormControlSelect1\" (change)=\"capacityChange($event.target.value)\">\n\t            <option>10</option>\n\t            <option>15</option>\n\t            <option>20</option>\n\t            <option>25</option>\n\t            <option>30</option>\n\t            <option>40</option>\n\t            <option>50</option>\n\t          </select>\n\t        </div>\n\t\t\t<div class=\"form-group\">\n\t          <label for=\"exampleFormControlSelect1\">Location</label>\n\t          <select class=\"form-control\" id=\"exampleFormControlSelect1\" (change)=\"locationChange($event.target.value)\">\n\t            <option value=\"Bangalore\">Bangalore</option>\n\t            <option value=\"Chennai\">Chennai</option>\n\t            <option value=\"Hyderabad\">Hyderabad</option>\n\t            <option value=\"Kolkata\">Kolkata</option>\n\t            <option value=\"Mumbai\">Mumbai</option>\n\t            <option value=\"NCR\">NCR</option>\n\t            <option value=\"Pune\">Pune</option>\n\t          </select>\n\t        </div>\n\t\t\t<div class=\"form-group\">\n\t          <label for=\"configurations\">Configuration</label>\n\t          <select class=\"form-control\" id=\"configurations\" (change)=\"configurationChange($event.target.value)\">\n\t          \t<option>Select Configuration</option>\n\t            <option *ngFor=\"let item of configurations | configuration:location;\">{{item.configuration}}</option>\n\t          </select>\n\t          <!-- <input type=\"text\" class=\"form-control\" list=\"configurationList\" placeholder=\"Select Configuration\" name=\"configuration\" required [(ngModel)]=\"configuration\" (blur)=\"inputChanged()\">\n\t\t\t\t<datalist id=\"configurationList\">\n\t\t\t\t\t<option *ngFor=\"let item of configurations\">{{item.configuration}}</option>\n\t\t\t\t</datalist> -->\n\t        </div>\n\t\t\t<div class=\"form-group\">\n\t\t    \t<label style=\"color: #000\">Contact Address </label>\n\t\t    \t<textarea class=\"form-control\" rows=\"3\" [(ngModel)]=\"contactAddress\" name=\"contactAddress\"></textarea>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n            \t<input type=\"file\" ng2FileSelect [uploader]=\"uploader\" />\n\t\t\t</div>\n\t\t\t<div class=\"col-12 row\">\n\t\t\t\t<div class=\"col-6\" *ngIf=\"uploader.queue.length>0\">\n\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t<strong>Name: </strong>{{ uploader.queue.name }}\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<strong>Size : </strong>{{ uploader.queue?.file?.size/1024/1024 | number:'.2' }} MB\n\t\t\t\t\t</div> -->\n\t\t\t\t\t<button class=\"btn btn-info\" style=\"margin-top: 20px;\" (click)=\"uploader.uploadAll()\">\n\t\t\t\t\t\tupload\n\t\t\t\t\t</button>\n\t\t\t\t</div>\t\n\t\t\t\t<div class=\"col-6\">\n\t            \t<img [src]=\"filePreviewPath\" width=\"250\" height=\"250\" *ngIf=\"filePreviewPath\" />\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div style=\"margin-top: 35px;\" align=\"center\">\n\t\t\t\t<button class=\"btn  btn-primary\" (click)=\"roomInsert()\">Submit</button>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n\t<div class=\"col-12\">\n\t\t<h2 id=\"textHeadding\"><strong>Room Resource</strong></h2>\n\t</div>\n\t<div class=\"offset-md-3 col-md-6 col-12\">\n\t\t<form name=\"myForm\">\n\t\t\t<div class=\"form-group\">\n\t\t    \t<label for=\"userId\" style=\"color: #000\">Room Id </label>\n\t\t    \t<input type=\"text\" class=\"form-control\" name=\"roomId\" [(ngModel)]=\"roomId\" placeholder=\"Enter Room Id\" required>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n\t          <label for=\"exampleFormControlSelect1\">Seater</label>\n\t          <select class=\"form-control\" id=\"exampleFormControlSelect1\" (change)=\"capacityChange($event.target.value)\">\n\t            <option>10</option>\n\t            <option>15</option>\n\t            <option>20</option>\n\t            <option>25</option>\n\t            <option>30</option>\n\t            <option>40</option>\n\t            <option>50</option>\n\t          </select>\n\t        </div>\n\t\t\t<div class=\"form-group\">\n\t          <label for=\"exampleFormControlSelect1\">Location</label>\n\t          <select class=\"form-control\" id=\"exampleFormControlSelect1\" (change)=\"locationChange($event.target.value)\">\n\t            <option value=\"Bangalore\">Bangalore</option>\n\t            <option value=\"Chennai\">Chennai</option>\n\t            <option value=\"Hyderabad\">Hyderabad</option>\n\t            <option value=\"Kolkata\">Kolkata</option>\n\t            <option value=\"Mumbai\">Mumbai</option>\n\t            <option value=\"NCR\">NCR</option>\n\t            <option value=\"Pune\">Pune</option>\n\t          </select>\n\t        </div>\n\t\t\t<div class=\"form-group\">\n\t          <label for=\"configurations\">Configuration</label>\n\t          <select class=\"form-control\" id=\"configurations\" (change)=\"configurationChange($event.target.value)\">\n\t          \t<option>Select Configuration</option>\n\t            <option *ngFor=\"let item of configurations | configuration:location;\">{{item.configuration}}</option>\n\t          </select>\n\t          <!-- <input type=\"text\" class=\"form-control\" list=\"configurationList\" placeholder=\"Select Configuration\" name=\"configuration\" required [(ngModel)]=\"configuration\" (blur)=\"inputChanged()\">\n\t\t\t\t<datalist id=\"configurationList\">\n\t\t\t\t\t<option *ngFor=\"let item of configurations\">{{item.configuration}}</option>\n\t\t\t\t</datalist> -->\n\t        </div>\n\t\t\t<div class=\"form-group\">\n\t\t    \t<label style=\"color: #000\">Contact Address </label>\n\t\t    \t<textarea class=\"form-control\" rows=\"3\" [(ngModel)]=\"contactAddress\" name=\"contactAddress\"></textarea>\n\t\t\t</div>\n\t\t\t<div class=\"form-group\">\n            \t<input type=\"file\" ng2FileSelect [uploader]=\"uploader\" />\n\t\t\t</div>\n\t\t\t<div class=\"col-12 row\">\n\t\t\t\t<div class=\"col-md-6 col-12\" *ngIf=\"uploader.queue.length>0\">\n\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t<strong>Name: </strong>{{ uploader.queue.name }}\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<strong>Size : </strong>{{ uploader.queue?.file?.size/1024/1024 | number:'.2' }} MB\n\t\t\t\t\t</div> -->\n\t\t\t\t\t<button class=\"btn btn-info\" style=\"margin-top: 20px;\" (click)=\"uploader.uploadAll()\">\n\t\t\t\t\t\tupload\n\t\t\t\t\t</button>\n\t\t\t\t</div>\t\n\t\t\t\t<div class=\"col-md-6 col-12\">\n\t            \t<img [src]=\"filePreviewPath\" width=\"200\" height=\"200\" *ngIf=\"filePreviewPath\" />\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div style=\"margin-top: 35px;\" align=\"center\">\n\t\t\t\t<button class=\"btn  btn-primary\" (click)=\"roomInsert()\">Submit</button>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n\n</div>\n"
 
 /***/ }),
 
@@ -1644,14 +1732,14 @@ var RoomResourceComponent = /** @class */ (function () {
 /***/ "./src/app/search-form/search-form.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ":host /deep/ ng2-datepicker {\n\n.datetpicker-container .datepicker-calendar .datepicker-calendar-container {\nbackground-color: black !important;\n}\n\n}"
 
 /***/ }),
 
 /***/ "./src/app/search-form/search-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <form (submit)=\"checkAvailable()\">\n        <div class=\"form-group\">\n          <label for=\"from_date\">Start Date </label>\n          <input type=\"date\" class=\"form-control\" id=\"start-date\" placeholder=\"From Date\" [(ngModel)]=\"startDate\" name=\"startDate\">\n        </div>\n        <div class=\"form-group\">\n          <label for=\"from_date\">End Date </label>\n          <input type=\"date\" class=\"form-control\" id=\"end-date\" placeholder=\"End Date\" [(ngModel)]=\"endDate\" name=\"endDate\">\n        </div>\n        \n        <div class=\"form-group\">\n            <label for=\"exampleFormControlSelect1\">Seater</label>\n            <select class=\"form-control\" id=\"exampleFormControlSelect1\" (change)=\"capacityChange($event.target.value)\">\n              <option>10</option>\n              <option>15</option>\n              <option>20</option>\n              <option>25</option>\n              <option>30</option>\n              <option>40</option>\n              <option>50</option>\n            </select>\n        </div>\n        <div class=\"form-group\">\n            <label for=\"exampleFormControlSelect1\">Location</label>\n            <select class=\"form-control\" id=\"exampleFormControlSelect1\" (change)=\"locationChange($event.target.value)\">\n              <option value=\"Bangalore\">Bangalore</option>\n              <option value=\"Chennai\">Chennai</option>\n              <option value=\"Hyderabad\">Hyderabad</option>\n              <option value=\"Kolkata\">Kolkata</option>\n              <option value=\"Mumbai\">Mumbai</option>\n              <option value=\"NCR\">NCR</option>\n              <option value=\"Pune\">Pune</option>\n            </select>\n          </div>\n      <div class=\"form-group\">\n            <label for=\"configurations\">Configuration</label>\n            <select class=\"form-control\" id=\"configurations\" (change)=\"configurationChange($event.target.value)\">\n              <option>Select Configuration</option>\n              <option *ngFor=\"let item of configurations | configuration:location;\">{{item.configuration}}</option>\n            </select>\n          </div>\n        <button type=\"submit\" class=\"btn btn-primary\">Check Availability</button>\n      </form>\n    </div>\n    <div class=\"col-md-6\">\n      <!DOCTYPE html>\n<html>\n<head>\n\n<style>\n* {box-sizing: border-box;}\nul {list-style-type: none;}\nbody {font-family: Verdana, sans-serif;\nbackground-color: lavender;\npadding-top: 0px;\n }\n\n.month {\n    padding: 70px 25px;\n    width: 100%;\n    background: #1abc9c;\n    text-align: center;\n}\n\n.month ul {\n    margin: 0;\n    padding: 0;\n}\n\n.month ul li {\n    color: white;\n    font-size: 20px;\n    text-transform: uppercase;\n    letter-spacing: 3px;\n}\n\n.month .prev {\n    float: left;\n    padding-top: 10px;\n}\n\n.month .next {\n    float: right;\n    padding-top: 10px;\n}\n\n.weekdays {\n    margin: 0;\n    padding: 15px 0;\n    background-color: #ddd;\n\n}\n\n.weekdays li {\n    display: inline-block;\n    width: 10.6%;\n    color: #666;\n    text-align: center;\n}\n\n.days {\n    padding: 10px 0;\n    background: #eee;\n    margin: 0;\n}\n\n.days li {\n    list-style-type: none;\n    display: inline-block;\n    width: 12.6%;\n    text-align: center;\n    margin-bottom: 5px;\n    font-size:12px;\n    color: #777;\n}\n\n.days li .active {\n    padding: 5px;\n    background: #1abc9c;\n    color: white !important\n}\n.days li .tantitive {\n    padding: 5px;\n    background: orange;\n    color: white !important\n}\n.days li .cancelled {\n    padding: 5px;\n    background: red;\n    color: white !important\n}\n\n/* Add media queries for smaller screens */\n@media screen and (max-width:720px) {\n    .weekdays li, .days li {width: 13.1%;}\n}\n\n@media screen and (max-width: 420px) {\n    .weekdays li, .days li {width: 12.5%;}\n    .days li .active {padding: 2px;}\n}\n\n@media screen and (max-width: 290px) {\n    .weekdays li, .days li {width: 12.2%;}\n}\n</style>\n</head>\n<body>\n\n\n<div class=\"month\">      \n  <ul>\n    <li class=\"prev\">&#10094;</li>\n    <li class=\"next\">&#10095;</li>\n    <li>\n      June<br>\n      <span style=\"font-size:18px\">2018</span>\n    </li>\n  </ul>\n</div>\n\n<ul class=\"weekdays\">\n  <li style=\"padding-left: 10px;\">Mo</li>\n  <li style=\"padding-left: 20px;\">Tu</li>\n  <li style=\"padding-left: 40px;\">We</li>\n  <li style=\"padding-left: 50px;\">Th</li>\n  <li style=\"padding-left: 65px;\">Fr</li>\n  <li style=\"padding-left: 65px;\">Sa</li>\n  <li style=\"padding-left: 65px;\">Su</li>\n</ul>\n\n<ul class=\"days\">  \n  <li><span class=\"active\">1</span></li>\n  <li><span class=\"cancelled\">2</span></li>\n  <li><span class=\"active\">3</span></li>\n  <li>4</li>\n  <li><span class=\"active\">5</span></li>\n  <li>6</li>\n  <li><span class=\"tantitive\">7</span></li>\n  <li>8</li>\n  <li>9</li>\n  <li>10</li>\n  <li>11</li>\n  <li>12</li>\n  <li><span class=\"cancelled\">13</span></li>\n  <li>14</li>\n  <li><span class=\"tantitive\">15</span></li>\n  <li>16</li>\n  <li><span class=\"cancelled\">17</span></li>\n  <li><span class=\"active\">18</span></li>\n  <li>19</li>\n  <li>20</li>\n  <li><span class=\"active\">21</span></li>\n  <li>22</li>\n  <li><span class=\"tantitive\">23</span></li>\n  <li>24</li>\n  <li>25</li>\n  <li><span class=\"tantitive\">26</span></li>\n  <li><span class=\"tantitive\">27</span></li>\n  <li>28</li>\n  <li>29</li>\n  <li>30</li>\n  <li><span class=\"active\">31</span></li>\n</ul>\n\n</body>\n</html>\n\n\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <form (submit)=\"checkAvailable()\">\n        <div class=\"form-group\">\n          <label for=\"from_date\">Start Date </label>\n          <div class=\"input-group\">\n            <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" name=\"start\" [(ngModel)]=\"start\" ngbDatepicker #d=\"ngbDatepicker\" (ngModelChange)=\"valuechange($event)\" [minDate]=\"minDate\" (click)=\"d.toggle()\" readonly>\n            <div class=\"input-group-append\">\n              <button class=\"input-group-addon\" (click)=\"d.toggle()\" type=\"button\"> <img src=\"../../assets/images/ngb.png\" style=\"width: 1.2rem; height: 1rem; cursor: pointer;\"/> </button>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"from_date\">End Date </label>\n          <div class=\"input-group\">\n            <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" name=\"end\" [(ngModel)]=\"end\" ngbDatepicker #da=\"ngbDatepicker\" [minDate]=\"minDate\" (click)=\"da.toggle()\" (ngModelChange)=\"valuechange1($event)\" readonly>\n            <div class=\"input-group-append\">\n              <button class=\"input-group-addon\" (click)=\"da.toggle()\" type=\"button\"> <img src=\"../../assets/images/ngb.png\" style=\"width: 1.2rem; height: 1rem; cursor: pointer;\"/> </button>\n            </div>\n          </div>\n        </div>\n        \n        <div class=\"form-group\">\n            <label for=\"exampleFormControlSelect1\">Seater</label>\n            <select  class=\"form-control\" id=\"exampleFormControlSelect1\" [(ngModel)]=\"capacity\" name=\"capacity\" readonly>\n              <option [ngValue]=\"null\" >Select Category</option>\n              <option *ngFor=\"let item of capacityList\">{{item}}</option>\n            </select>\n        </div>\n        <div class=\"form-group\">\n            <label for=\"exampleFormControlSelect1\">Location</label>\n            <select class=\"form-control\" id=\"exampleFormControlSelect1\" [(ngModel)]=\"location\" name=\"location\" readonly>\n              <option [ngValue]=\"null\" hidden >select location</option>\n              <option *ngFor=\"let item of locationsList\">{{item}}</option>\n            </select>  \n        </div>\n        <div class=\"form-group\">\n            <label for=\"configurations\">Configuration</label>\n            <select class=\"form-control\" id=\"configurations\" [(ngModel)]=\"configuration\" name=\"configuration\" readonly>\n              <option [ngValue]=\"null\">Select Configuration</option>\n              <option *ngFor=\"let item of configurations | configuration:location;\">{{item.configuration}}</option>\n            </select>\n        </div>\n        <button type=\"submit\" class=\"btn btn-primary\">Check Availability</button>\n      </form>\n    </div>\n    <div class=\"col-md-6\">\n      <ngb-datepicker #dp [(ngModel)]=\"model\" (navigate)=\"date = $event.next\" [minDate]=\"minDate\"></ngb-datepicker>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1665,6 +1753,7 @@ module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div cla
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1678,34 +1767,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SearchFormComponent = /** @class */ (function () {
-    function SearchFormComponent(authService, router, flashMessageService) {
+    function SearchFormComponent(authService, router, datepipe, flashMessageService) {
         this.authService = authService;
         this.router = router;
+        this.datepipe = datepipe;
         this.flashMessageService = flashMessageService;
         this.location = "Bangalore";
-        this.startDate = null;
-        this.endDate = null;
+        this.capacity = 10;
+        this.minDate = { year: new Date().getFullYear(), month: new Date().getMonth() + 1, day: new Date().getDate() };
+        this.model = { year: new Date().getFullYear(), month: new Date().getMonth() + 1, day: new Date().getDate() };
     }
     SearchFormComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.capacityList = [10, 15, 20, 25, 30, 40, 50];
+        this.locationsList = ["Bangalore", "Chennai", "Hyderabad", "Kolkata", "Mumbai", "NCR", "Pune"];
         this.authService.getConfigurations().subscribe(function (configuration) {
             _this.configurations = configuration.data;
             // console.log(this.configurations);
         });
     };
-    SearchFormComponent.prototype.locationChange = function (location) {
-        this.location = location;
+    SearchFormComponent.prototype.valuechange = function (newValue) {
+        this.startDate = this.datepipe.transform(newValue.year + "-" + newValue.month + "-" + newValue.day, 'yyyy-MM-dd');
+        console.log(this.startDate);
+    };
+    SearchFormComponent.prototype.valuechange1 = function (newValue) {
+        this.endDate = this.datepipe.transform(newValue.year + "-" + newValue.month + "-" + newValue.day, 'yyyy-MM-dd');
+        console.log(this.endDate);
     };
     SearchFormComponent.prototype.checkAvailable = function () {
-        var checkdata = {
-            startDate: this.startDate,
-            endDate: this.endDate
-        };
-        //console.log(checkdata);
-        localStorage.setItem('checkData', JSON.stringify(checkdata));
+        // const checkdata={
+        //   location:this.location,
+        //    startDate:this.startDate,
+        //    endDate:this.endDate
+        // }
+        // //console.log(checkdata);
+        // localStorage.setItem('checkData',JSON.stringify(checkdata));
         //console.log(this.location);
-        this.router.navigate(['available', this.location]);
+        this.router.navigate(['available']);
     };
     SearchFormComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -1715,6 +1815,7 @@ var SearchFormComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_common__["DatePipe"],
             __WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages__["FlashMessagesService"]])
     ], SearchFormComponent);
     return SearchFormComponent;

@@ -1,0 +1,55 @@
+forDropdown change
+-------------------
+(change)="locationChange($event.target.value)"
+
+
+
+
+
+
+<!-- <div class="col-12 col-md-6" id="available" *ngFor="let item of availableRooms | availableRoom:location; let i=index">
+				<div class="row">
+					<div class="col-12 col-md-5" id="staticImg" *ngFor="let subItem of item.image ">
+						<img src="http://localhost:5000/static/{{subItem.uploadname}}" alt="" width="100%"  height="100%">
+					</div>
+					<div class="col-12 col-md-7" id="roomDetails">
+						<div class="row">
+							<div class="col-6" style="margin-top: 10px;">
+								<h3 style="color:#A569BD;"><strong>{{item.location}}</strong></h3>
+							</div>
+							<div align="center" class="col-6" style="margin-top: 10px;">
+								<h6 style="color:green;"><strong>{{item.status}}</strong></h6>
+							</div>
+							<div class="col-12">
+								<strong>Room Id :</strong> {{item.roomId}}
+							</div>
+							<div class="col-12">
+								<strong>Capacity :</strong> {{item.capacity}}
+							</div>
+							<div class="col-12" style="word-wrap: break-word;">
+								<strong>Contact Address :</strong>{{item.contactAddress}}
+							</div>
+							<div class="col-12" style="word-wrap: break-word;" *ngIf="item.startDate">
+								<strong>booked dates :</strong>{{item.startDate}} >> {{item.endDate}}
+							</div>
+							<div class="col-12" style="margin-top: 10px;">
+								<a href="#demo{{i}}" data-toggle="collapse" style="font-size: 14px; text-decoration: underline; color: green;">View more Information</a>
+								<div id="demo{{i}}" class="collapse">
+	    							<div style="font-size: 14px;">
+										<strong>Configuration : </strong>{{item.configuration}}
+	    							</div>
+	    						</div>
+							</div>
+							<div class="col-12 bottomright" align="end" style="bottom: 0px;">
+								<button class="btn btn-primary" (click)="bookRoom(item)">Book Room</button>
+								<button class="btn" style="background-color:orange;" (click)="tentativeRoom(item)">Tentative</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div id="available" *ngFor="let item of availableRooms | availableRoom:location;">
+				<div align="center" *ngIf="item ===-1">
+					<h4 style="padding: 100px;">-- NO Rooms Availble In {{location}} --</h4>
+				</div>
+			</div> -->

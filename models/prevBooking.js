@@ -1,12 +1,13 @@
 const mongoose=require('mongoose');
 
 const userSchema=new mongoose.Schema({
+	rmResourceId:String,
 	userId:String,
 	roomId:String,
 	roomName:String,
 	capacity:Number,
 	city:String,
-	image:String,
+	image:[],
 	configuration:String,
 	state:String,
 	zipcode:Number,

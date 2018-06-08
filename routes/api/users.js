@@ -128,6 +128,7 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 
 router.post('/prevBooking',(req,res)=>{
     let bookingData= new PrevBooking({
+        rmResourceId:req.body.rmResourceId,
         userId:req.body.userId,
         roomId:req.body.roomId,
         roomName:req.body.roomName,
@@ -168,7 +169,7 @@ router.post('/updatePrevBooking',(req,res)=>{
     })
 })
 router.post('/updateBooking',(req,res)=>{
-    const id=req.body.bookingId;
+    const id=req.body.rmResourceId;
     const startDate=req.body.startDate;
     const endDate=req.body.endDate;
     AvailableRooms.updateOne({_id:id},{$set: {startDate:startDate,endDate:endDate}},(err,data)=>{

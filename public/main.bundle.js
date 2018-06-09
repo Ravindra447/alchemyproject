@@ -1631,7 +1631,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var uri = 'http://localhost:5000/api/users/upload';
+//const uri='http://localhost:5000/api/users/upload';
+var uri = '/api/users/upload';
 var RoomResourceComponent = /** @class */ (function () {
     function RoomResourceComponent(sanitizer, authService, router, flashMessageService) {
         var _this = this;

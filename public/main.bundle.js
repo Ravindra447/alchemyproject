@@ -279,14 +279,14 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/available-rooms/available-rooms.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#available{\n\tbackground: white;\n  \tborder: 0.5px solid lightgray;\n  \theight: 400px;\n  \twidth: 100%;\n  \tpadding: 0px;\n  \tmargin:30px 0px 30px 0px;\n}\n#companyName{\n  word-wrap: break-word; \n  padding: 2px;\n  cursor: pointer;\n  color:#A569BD;\n}\n#companyName:hover{\n  text-decoration: underline;\n}\n.list{\n  border-radius: 5px;\n  border: 0.5px solid lightgray;\n  height: 420px;\n  width: 100%;\n  margin:30px 0px 0px 0px;\n  text-align: center;\n  background: white;\n}\n.filters{\n\tz-index:1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 100px;\n  padding: 0px;\n  margin:0px;\n  padding-bottom: 20px;\n}\n#noRmAvailable{\n\t/*border-radius: 5px;*/\n\tpadding: 50px;\n  \tborder: 0.5px solid lightgray;\n}\n#noImg{\n  width: 100vw; \n  background:lavender;opacity: 0.7;\n  height:200px;\n}\n#staticImg{\n\theight:300px;\n\twidth: 100vw; \n\tcursor: pointer;\t\n}\n.bottomright {\n\t/*position:absolute; \n\tbottom:0;  \n\tright: 0;*/\n\tpadding: 40px;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#roomDetails{\n\t\tpadding-left: 40px;\n\t}\n\t#available{\n\t\tbackground: white;\n\t  \tborder: 0.5px solid lightgray;\n\t  \theight: 700px;\n\t  \twidth: 100%;\n\t  \tpadding: 0px;\n\t  \tmargin:30px 0px 30px 0px;\n\t}\n\t\n}"
+module.exports = "\n#companyName{\n  word-wrap: break-word; \n  padding: 2px;\n  cursor: pointer;\n  color:#A569BD;\n}\n#companyName:hover{\n  text-decoration: underline;\n}\n.list{\n  border-radius: 5px;\n  border: 0.5px solid lightgray;\n  height: 450px;\n  width: 100%;\n  margin:30px 0px 0px 0px;\n  text-align: center;\n  background: white;\n}\n.filters{\n\tz-index:1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 100px;\n  padding: 0px;\n  margin:0px;\n  padding-bottom: 20px;\n}\n#noRmAvailable{\n\t/*border-radius: 5px;*/\n\tpadding: 50px;\n  \tborder: 0.5px solid lightgray;\n}\n#noImg{\n  width: 100vw; \n  background:lavender;opacity: 0.7;\n  height:200px;\n}\n#staticImg{\n\theight:300px;\n\twidth: 100vw; \n\tcursor: pointer;\t\n}\n.bottomright {\n\t/*position:absolute; \n\tbottom:0;  \n\tright: 0;*/\n\tpadding: 40px;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#roomDetails{\n\t\tpadding-left: 40px;\n\t}\n\t\n}"
 
 /***/ }),
 
 /***/ "./src/app/available-rooms/available-rooms.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-12\">\n\t<div class=\"row\">\n\t\t<div class=\"col-12 col-md-3\" style=\"background-color: white;\">\n\t\t\t<div class=\"filters\">\n\t\t\t\t<div align=\"end\">\n\t\t\t\t\t<h6 style=\"color:red; cursor: pointer; font-size: 14px; text-decoration: underline; padding-top: 20px;\" (click)=\"clear()\">clear</h6>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"form-group\">\n\t\t          <label for=\"from_date\">Start Date </label>\n\t\t          <div class=\"input-group\">\n\t\t            <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" name=\"startD\" [(ngModel)]=\"startD\" ngbDatepicker #d=\"ngbDatepicker\" (ngModelChange)=\"valuechange($event)\" [minDate]=\"minDate\" (click)=\"d.toggle()\" readonly>\n\t\t            <div class=\"input-group-append\">\n\t\t              <button class=\"input-group-addon\" (click)=\"d.toggle()\" type=\"button\"> <img src=\"../../assets/images/ngb.png\" style=\"width: 1.2rem; height: 1rem; cursor: pointer;\"/> </button>\n\t\t            </div>\n\t\t          </div>\n\t\t        </div>  \n\t\t        <div class=\"form-group\">\n\t\t          <label for=\"from_date\">End Date </label>\n\t\t          <div class=\"input-group\">\n\t\t            <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" name=\"endD\" [(ngModel)]=\"endD\" ngbDatepicker #da=\"ngbDatepicker\" (ngModelChange)=\"valuechange1($event)\" [minDate]=\"minDate\" (click)=\"da.toggle()\" readonly>\n\t\t            <div class=\"input-group-append\">\n\t\t              <button class=\"input-group-addon\" (click)=\"da.toggle()\" type=\"button\"> <img src=\"../../assets/images/ngb.png\" style=\"width: 1.2rem; height: 1rem; cursor: pointer;\"/> </button>\n\t\t            </div>\n\t\t          </div>\n\t\t        </div>  \n\t\t        <div class=\"form-group\">\n\t            \t<label for=\"exampleFormControlSelect1\">Seater</label>\n\t\t            <select  class=\"form-control\" id=\"exampleFormControlSelect1\" [(ngModel)]=\"capacity\" name=\"capacity\" readonly>\n\t\t\t\t\t <option [ngValue]=\"null\" >Select Category</option>\n\t\t              <option *ngFor=\"let item of capacityList\">{{item}}</option>\n\t\t            </select>\n\t        \t</div>\n\t\t        <div class=\"form-group\">\n\t\t            <label for=\"exampleFormControlSelect1\">Location</label>\n\t\t            <select class=\"form-control\" id=\"exampleFormControlSelect1\" [(ngModel)]=\"location\" name=\"location\" readonly>\n\t\t            \t<option [ngValue]=\"null\" hidden >select location</option>\n\t\t            \t<option *ngFor=\"let item of locationsList\">{{item}}</option>\n\t\t            </select>  \n\t\t        </div>\n\t\t        <div class=\"form-group\">\n\t\t            <label for=\"configurations\">Configuration</label>\n\t\t            <select class=\"form-control\" id=\"configurations\" [(ngModel)]=\"configuration\" name=\"configuration\" readonly>\n\t\t              <option [ngValue]=\"null\">Select Configuration</option>\n\t\t              <option *ngFor=\"let item of configurations | configuration:location;\">{{item.configuration}}</option>\n\t\t            </select>\n\t\t        </div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-12 col-md-9\" style=\"padding-bottom: 30px;\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-4 col-12\" *ngFor=\"let item of availableRooms | availableRoom:location:startDate:endDate:capacity:configuration; let i=index\">\n\t\t\t\t\t<div class=\"list row\" *ngIf=\"item !== -1\">\n            \t\t\t<div align=\"start\" *ngFor=\"let subItem of item.image | slice:0:1;\" style=\"width: 100vw; cursor: pointer;\">\n              \t\t\t\t<!-- <img src=\"http://localhost:5000/static/{{subItem.uploadname}}\" class=\"rounded\" width=\"100%\"  height=\"200\"> -->\n              \t\t\t\t <img src=\"static/{{subItem.uploadname}}\" class=\"rounded\" width=\"100%\"  height=\"200\">            \n              \t\t\t</div>\n            \t\t\t<div align=\"start\" *ngIf=\"!item.image.length>0\" id=\"noImg\">\n\t\t\t              <div align=\"center\" style=\"padding-top:90px; \">--No Preview--</div>\n\t\t\t            </div>\n\t\t\t            <div class=\"col-12\">\n              \t\t\t\t<h5 id=\"companyName\">\n                \t\t\t\t<strong>{{item.roomId}}</strong>\n              \t\t\t\t</h5>\n            \t\t\t</div>\n            \t\t\t<div align=\"left\" class=\"col-12\" style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t<strong>Location :</strong> {{item.location}}\n\t\t\t\t\t\t</div>\n            \t\t\t<div align=\"left\" class=\"col-12\" style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t<strong>Capacity :</strong> {{item.capacity}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div align=\"left\" class=\"col-12\" style=\"word-wrap: break-word;\" style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t<strong>Contact Address : </strong>{{item.contactAddress}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div align=\"left\" class=\"col-12\">\n\t\t\t\t\t\t\t<a href=\"#demo{{i}}\" data-toggle=\"collapse\" style=\"font-size: 12px; text-decoration: underline; color: green;\">View more Information</a>\n\t\t\t\t\t\t\t<div id=\"demo{{i}}\" class=\"collapse\">\n\t    \t\t\t\t\t\t<div style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t\t\t<strong>Configuration : </strong>{{item.configuration}}\n\t    \t\t\t\t\t\t</div>\n\t    \t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\" align=\"end\" >\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-primary\" (click)=\"bookRoom(item)\">Book Room</button>\n\t\t\t\t\t\t\t<button class=\"btn btn-sm \" style=\"background-color:orange;\" (click)=\"tentativeRoom(item)\">Tentative</button>\n\t\t\t\t\t\t</div>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"col-12\" *ngFor=\"let item of availableRooms | availableRoom:location:startDate:endDate:capacity:configuration;\">\n\t          \t<div *ngIf=\"item === -1\">\n\t          \t\t<div id=\"noRmAvailable\">\n\t          \t\t\t<div align=\"center\">\n\t\t\t\t\t\t\t<h4>No Rooms Available Yet ! {{location}} With this Specifications</h4>\n\t\t\t\t\t\t</div>\n\t          \t\t</div>\n\t\t            \t\n\t          \t</div>\n        \t</div>\n\t\t</div>\t\n\t</div>\t\t\n</div>\n"
+module.exports = "<div class=\"col-12\">\n\t<div class=\"row\">\n\t\t<div class=\"col-12 col-md-3\" style=\"background-color: white;\">\n\t\t\t<div class=\"filters\">\n\t\t\t\t<div align=\"end\">\n\t\t\t\t\t<h6 style=\"color:red; cursor: pointer; font-size: 14px; text-decoration: underline; padding-top: 20px;\" (click)=\"clear()\">clear</h6>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"form-group\">\n\t\t          <label for=\"from_date\">Start Date </label>\n\t\t          <div class=\"input-group\">\n\t\t            <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" name=\"startD\" [(ngModel)]=\"startD\" ngbDatepicker #d=\"ngbDatepicker\" (ngModelChange)=\"valuechange($event)\" [minDate]=\"minDate\" (click)=\"d.toggle()\" readonly>\n\t\t            <div class=\"input-group-append\">\n\t\t              <button class=\"input-group-addon\" (click)=\"d.toggle()\" type=\"button\"> <img src=\"../../assets/images/ngb.png\" style=\"width: 1.2rem; height: 1rem; cursor: pointer;\"/> </button>\n\t\t            </div>\n\t\t          </div>\n\t\t        </div>  \n\t\t        <div class=\"form-group\">\n\t\t          <label for=\"from_date\">End Date </label>\n\t\t          <div class=\"input-group\">\n\t\t            <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" name=\"endD\" [(ngModel)]=\"endD\" ngbDatepicker #da=\"ngbDatepicker\" (ngModelChange)=\"valuechange1($event)\" [minDate]=\"minDate\" (click)=\"da.toggle()\" readonly>\n\t\t            <div class=\"input-group-append\">\n\t\t              <button class=\"input-group-addon\" (click)=\"da.toggle()\" type=\"button\"> <img src=\"../../assets/images/ngb.png\" style=\"width: 1.2rem; height: 1rem; cursor: pointer;\"/> </button>\n\t\t            </div>\n\t\t          </div>\n\t\t        </div>  \n\t\t        <div class=\"form-group\">\n\t            \t<label for=\"exampleFormControlSelect1\">Seater</label>\n\t\t            <select  class=\"form-control\" id=\"exampleFormControlSelect1\" [(ngModel)]=\"capacity\" name=\"capacity\" readonly>\n\t\t\t\t\t <option [ngValue]=\"null\" >Select Category</option>\n\t\t              <option *ngFor=\"let item of capacityList\">{{item}}</option>\n\t\t            </select>\n\t        \t</div>\n\t\t        <div class=\"form-group\">\n\t\t            <label for=\"exampleFormControlSelect1\">Location</label>\n\t\t            <select class=\"form-control\" id=\"exampleFormControlSelect1\" [(ngModel)]=\"location\" name=\"location\" readonly>\n\t\t            \t<option [ngValue]=\"null\" hidden >select location</option>\n\t\t            \t<option *ngFor=\"let item of locationsList\">{{item}}</option>\n\t\t            </select>  \n\t\t        </div>\n\t\t        <div class=\"form-group\">\n\t\t            <label for=\"configurations\">Configuration</label>\n\t\t            <select class=\"form-control\" id=\"configurations\" [(ngModel)]=\"configuration\" name=\"configuration\" readonly>\n\t\t              <option [ngValue]=\"null\">Select Configuration</option>\n\t\t              <option *ngFor=\"let item of configurations | configuration:location;\">{{item.configuration}}</option>\n\t\t            </select>\n\t\t        </div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-12 col-md-9\" style=\"padding-bottom: 30px;\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-4 col-12\" *ngFor=\"let item of availableRooms | availableRoom:location:startDate:endDate:capacity:configuration; let i=index\">\n\t\t\t\t\t<div class=\"list row\" *ngIf=\"item !== -1\">\n            \t\t\t<div align=\"start\" *ngFor=\"let subItem of item.image | slice:0:1;\" style=\"width: 100vw; cursor: pointer;\">\n              \t\t\t\t<!-- <img src=\"http://localhost:5000/static/{{subItem.uploadname}}\" class=\"rounded\" width=\"100%\"  height=\"160\"> -->\n              \t\t\t\t<img src=\"static/{{subItem.uploadname}}\" class=\"rounded\" width=\"100%\"  height=\"200\">            \n              \t\t\t</div>\n            \t\t\t<div align=\"start\" *ngIf=\"!item.image.length>0\" id=\"noImg\">\n\t\t\t              <div align=\"center\" style=\"padding-top:90px; \">--No Preview--</div>\n\t\t\t            </div>\n\t\t\t            <div class=\"col-12\">\n              \t\t\t\t<h5 id=\"companyName\">\n                \t\t\t\t<strong>{{item.roomId}}</strong>\n              \t\t\t\t</h5>\n            \t\t\t</div>\n            \t\t\t<div align=\"left\" class=\"col-12\" style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t<strong>Location :</strong> {{item.location}}\n\t\t\t\t\t\t</div>\n            \t\t\t<div align=\"left\" class=\"col-12\" style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t<strong>Capacity :</strong> {{item.capacity}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div align=\"left\" class=\"col-12\" style=\"word-wrap: break-word;\" style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t<strong>Contact Address : </strong>{{item.contactAddress}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div align=\"left\" class=\"col-12\">\n\t\t\t\t\t\t\t<a href=\"#demo{{i}}\" data-toggle=\"collapse\" style=\"font-size: 10px; text-decoration: underline; color: green;\">View more Information</a>\n\t\t\t\t\t\t\t<div id=\"demo{{i}}\" class=\"collapse\">\n\t    \t\t\t\t\t\t<div style=\"font-size: 12px;\">\n\t\t\t\t\t\t\t\t\t<strong>Configuration : </strong>{{item.configuration}}\n\t    \t\t\t\t\t\t</div>\n\t    \t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-12\" align=\"end\" >\n\t\t\t\t\t\t\t<button class=\"btn btn-sm btn-primary\" (click)=\"bookRoom(item)\">Book Room</button>\n\t\t\t\t\t\t\t<button class=\"btn btn-sm \" style=\"background-color:orange;\" (click)=\"tentativeRoom(item)\">Tentative</button>\n\t\t\t\t\t\t</div>\n            \t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"col-12\" *ngFor=\"let item of availableRooms | availableRoom:location:startDate:endDate:capacity:configuration;\">\n\t          \t<div *ngIf=\"item === -1\">\n\t          \t\t<div id=\"noRmAvailable\">\n\t          \t\t\t<div align=\"center\">\n\t\t\t\t\t\t\t<h4>No Rooms Available Yet ! {{location}} With this Specifications</h4>\n\t\t\t\t\t\t</div>\n\t          \t\t</div>\n\t\t            \t\n\t          \t</div>\n        \t</div>\n\t\t</div>\t\n\t</div>\t\t\n</div>\n"
 
 /***/ }),
 
@@ -1685,62 +1685,61 @@ var RoomResourceComponent = /** @class */ (function () {
     // 	}
     // }
     RoomResourceComponent.prototype.roomInsert = function () {
+        // this.authService.getConfigurations().subscribe(configuration=>{
+        //   this.configurations=configuration.data;
+        //   for(var i=0; i<this.configurations.length;i++){
+        //     if(this.configurations[i].location==this.location){
+        //       this.configuration=this.configurations[i].configuration;
+        //       const roomDetails={
+        //         roomId:this.roomId,
+        //         capacity:this.capacity,
+        //         location:this.location,
+        //         configuration:this.configuration,
+        //         contactAddress:this.contactAddress,
+        //         image:this.List
+        //       }
+        //       if(this.roomId==undefined || this.configuration==undefined || this.contactAddress ==undefined || this.List.length==0){
+        //         this.flashMessageService.show('please fill all details',{cssClass:'alert-danger', timeOut: 2000});
+        //       }
+        //       else{
+        //         this.authService.roomResource(roomDetails).subscribe(result=>{
+        //           if(result.success){
+        //             this.flashMessageService.show('Room successfully inserted',{cssClass:'alert-success', timeOut: 2000});
+        //             //this.clear();
+        //           }
+        //           else{
+        //           this.flashMessageService.show('Insertion failed',{cssClass:'alert-danger', timeOut: 2000});
+        //           }
+        //         })
+        //       }
+        //     }
         var _this = this;
-        this.authService.getConfigurations().subscribe(function (configuration) {
-            _this.configurations = configuration.data;
-            for (var i = 0; i < _this.configurations.length; i++) {
-                if (_this.configurations[i].location == _this.location) {
-                    _this.configuration = _this.configurations[i].configuration;
-                    var roomDetails = {
-                        roomId: _this.roomId,
-                        capacity: _this.capacity,
-                        location: _this.location,
-                        configuration: _this.configuration,
-                        contactAddress: _this.contactAddress,
-                        image: _this.List
-                    };
-                    //console.log(roomDetails);
-                    if (_this.roomId == undefined || _this.configuration == undefined || _this.contactAddress == undefined || _this.List.length == 0) {
-                        _this.flashMessageService.show('please fill all details', { cssClass: 'alert-danger', timeOut: 2000 });
-                    }
-                    else {
-                        _this.authService.roomResource(roomDetails).subscribe(function (result) {
-                            if (result.success) {
-                                _this.flashMessageService.show('Room successfully inserted', { cssClass: 'alert-success', timeOut: 2000 });
-                                //this.clear();
-                            }
-                            else {
-                                _this.flashMessageService.show('Insertion failed', { cssClass: 'alert-danger', timeOut: 2000 });
-                            }
-                        });
-                    }
+        //   }
+        //   this.clear();
+        // });
+        var roomDetails = {
+            roomId: this.roomId,
+            capacity: this.capacity,
+            location: this.location,
+            configuration: this.configuration,
+            contactAddress: this.contactAddress,
+            image: this.List
+        };
+        console.log(roomDetails);
+        if (this.roomId == undefined || this.configuration == undefined || this.contactAddress == undefined || this.List.length == 0) {
+            this.flashMessageService.show('please fill all details', { cssClass: 'alert-danger', timeOut: 2000 });
+        }
+        else {
+            this.authService.roomResource(roomDetails).subscribe(function (result) {
+                if (result.success) {
+                    _this.flashMessageService.show('Room successfully inserted', { cssClass: 'alert-success', timeOut: 2000 });
+                    //this.clear();
                 }
-            }
-            _this.clear();
-        });
-        // const roomDetails={
-        // 	roomId:this.roomId,
-        // 	capacity:this.capacity,
-        // 	location:this.location,
-        // 	configuration:this.configuration,
-        // 	contactAddress:this.contactAddress,
-        // 	image:this.List
-        // }
-        // console.log(roomDetails);
-        // if(this.roomId==undefined || this.configuration==undefined || this.contactAddress ==undefined || this.List.length==0){
-        // 	this.flashMessageService.show('please fill all details',{cssClass:'alert-danger', timeOut: 2000});
-        // }
-        // else{
-        // 	this.authService.roomResource(roomDetails).subscribe(result=>{
-        // 		if(result.success){
-        // 			this.flashMessageService.show('Room successfully inserted',{cssClass:'alert-success', timeOut: 2000});
-        // 			//this.clear();
-        // 		}
-        // 		else{
-        // 	this.flashMessageService.show('Insertion failed',{cssClass:'alert-danger', timeOut: 2000});
-        // 		}
-        // 	})
-        // }
+                else {
+                    _this.flashMessageService.show('Insertion failed', { cssClass: 'alert-danger', timeOut: 2000 });
+                }
+            });
+        }
     };
     RoomResourceComponent.prototype.clear = function () {
         this.filePreviewPath = "";
@@ -1893,13 +1892,13 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/users/register', user, { headers: headers })
+        return this.http.post('http://localhost:5000/api/users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/users/login', user, { headers: headers })
+        return this.http.post('http://localhost:5000/api/users/login', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getCurrent = function () {
@@ -1907,52 +1906,52 @@ var AuthService = /** @class */ (function () {
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.get('/api/users/current', { headers: headers })
+        return this.http.get('http://localhost:5000/api/users/current', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getPrevBookingData = function () {
-        return this.http.get('/api/users/prevBookingData')
+        return this.http.get('http://localhost:5000/api/users/prevBookingData')
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.updatePrevBookingData = function (status) {
         // console.log(status)
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/users/updatePrevBooking', status, { headers: headers })
+        return this.http.post('http://localhost:5000/api/users/updatePrevBooking', status, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.updateBooking = function (status) {
         // console.log(status)
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/users/updateBooking', status, { headers: headers })
+        return this.http.post('http://localhost:5000/api/users/updateBooking', status, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.InsertConfigurations = function (config) {
         // console.log(status)
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/users/configurations', config, { headers: headers })
+        return this.http.post('http://localhost:5000/api/users/configurations', config, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getConfigurations = function () {
-        return this.http.get('/api/users/getConfigurations')
+        return this.http.get('http://localhost:5000/api/users/getConfigurations')
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getAvailableRooms = function () {
-        return this.http.get('/api/users/getAvailableRooms')
+        return this.http.get('http://localhost:5000/api/users/getAvailableRooms')
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.roomResource = function (rooms) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/users/roomResource', rooms, { headers: headers })
+        return this.http.post('http://localhost:5000/api/users/roomResource', rooms, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.bookingRooms = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/users/prevBooking', user, { headers: headers })
+        return this.http.post('http://localhost:5000/api/users/prevBooking', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.loadToken = function () {

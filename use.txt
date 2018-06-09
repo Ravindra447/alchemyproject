@@ -4,7 +4,41 @@ forDropdown change
 
 
 
-
+<div class="form-group">
+	          <label for="exampleFormControlSelect1">Seater</label>
+	          <select class="form-control" id="exampleFormControlSelect1" (change)="capacityChange($event.target.value)">
+	            <option>10</option>
+	            <option>15</option>
+	            <option>20</option>
+	            <option>25</option>
+	            <option>30</option>
+	            <option>40</option>
+	            <option>50</option>
+	          </select>
+	        </div>
+			<div class="form-group">
+	          <label for="exampleFormControlSelect1">Location</label>
+	          <select class="form-control" id="exampleFormControlSelect1" (change)="locationChange($event.target.value)">
+	            <option value="Bangalore">Bangalore</option>
+	            <option value="Chennai">Chennai</option>
+	            <option value="Hyderabad">Hyderabad</option>
+	            <option value="Kolkata">Kolkata</option>
+	            <option value="Mumbai">Mumbai</option>
+	            <option value="NCR">NCR</option>
+	            <option value="Pune">Pune</option>
+	          </select>
+	        </div>
+			<div class="form-group">
+	          <label for="configurations">Configuration</label>
+	          <select class="form-control" id="configurations" (change)="configurationChange($event.target.value)">
+	          	<option>Select Configuration</option>
+	            <option *ngFor="let item of configurations | configuration:location;">{{item.configuration}}</option>
+	          </select>
+	          <!-- <input type="text" class="form-control" list="configurationList" placeholder="Select Configuration" name="configuration" required [(ngModel)]="configuration" (blur)="inputChanged()">
+				<datalist id="configurationList">
+					<option *ngFor="let item of configurations">{{item.configuration}}</option>
+				</datalist> -->
+	        </div>
 
 
 <!-- <div class="col-12 col-md-6" id="available" *ngFor="let item of availableRooms | availableRoom:location; let i=index">

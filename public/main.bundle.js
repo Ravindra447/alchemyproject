@@ -1685,61 +1685,61 @@ var RoomResourceComponent = /** @class */ (function () {
     // 	}
     // }
     RoomResourceComponent.prototype.roomInsert = function () {
+        // this.authService.getConfigurations().subscribe(configuration=>{
+        //   this.configurations=configuration.data;
+        //   for(var i=0; i<this.configurations.length;i++){
+        //     if(this.configurations[i].location==this.location){
+        //       this.configuration=this.configurations[i].configuration;
+        //       const roomDetails={
+        //         roomId:this.roomId,
+        //         capacity:this.capacity,
+        //         location:this.location,
+        //         configuration:this.configuration,
+        //         contactAddress:this.contactAddress,
+        //         image:this.List
+        //       }
+        //       if(this.roomId==undefined || this.configuration==undefined || this.contactAddress ==undefined || this.List.length==0){
+        //         this.flashMessageService.show('please fill all details',{cssClass:'alert-danger', timeOut: 2000});
+        //       }
+        //       else{
+        //         this.authService.roomResource(roomDetails).subscribe(result=>{
+        //           if(result.success){
+        //             this.flashMessageService.show('Room successfully inserted',{cssClass:'alert-success', timeOut: 2000});
+        //             //this.clear();
+        //           }
+        //           else{
+        //           this.flashMessageService.show('Insertion failed',{cssClass:'alert-danger', timeOut: 2000});
+        //           }
+        //         })
+        //       }
+        //     }
         var _this = this;
-        this.authService.getConfigurations().subscribe(function (configuration) {
-            _this.configurations = configuration.data;
-            for (var i = 0; i < _this.configurations.length; i++) {
-                if (_this.configurations[i].location == _this.location) {
-                    _this.configuration = _this.configurations[i].configuration;
-                    var roomDetails = {
-                        roomId: _this.roomId,
-                        capacity: _this.capacity,
-                        location: _this.location,
-                        configuration: _this.configuration,
-                        contactAddress: _this.contactAddress,
-                        image: _this.List
-                    };
-                    if (_this.roomId == undefined || _this.configuration == undefined || _this.contactAddress == undefined || _this.List.length == 0) {
-                        _this.flashMessageService.show('please fill all details', { cssClass: 'alert-danger', timeOut: 2000 });
-                    }
-                    else {
-                        _this.authService.roomResource(roomDetails).subscribe(function (result) {
-                            if (result.success) {
-                                _this.flashMessageService.show('Room successfully inserted', { cssClass: 'alert-success', timeOut: 2000 });
-                                //this.clear();
-                            }
-                            else {
-                                _this.flashMessageService.show('Insertion failed', { cssClass: 'alert-danger', timeOut: 2000 });
-                            }
-                        });
-                    }
+        //   }
+        //   this.clear();
+        // });
+        var roomDetails = {
+            roomId: this.roomId,
+            capacity: this.capacity,
+            location: this.location,
+            configuration: this.configuration,
+            contactAddress: this.contactAddress,
+            image: this.List
+        };
+        console.log(roomDetails);
+        if (this.roomId == undefined || this.configuration == undefined || this.contactAddress == undefined || this.List.length == 0) {
+            this.flashMessageService.show('please fill all details', { cssClass: 'alert-danger', timeOut: 2000 });
+        }
+        else {
+            this.authService.roomResource(roomDetails).subscribe(function (result) {
+                if (result.success) {
+                    _this.flashMessageService.show('Room successfully inserted', { cssClass: 'alert-success', timeOut: 2000 });
+                    //this.clear();
                 }
-            }
-            _this.clear();
-        });
-        // const roomDetails={
-        // 	roomId:this.roomId,
-        // 	capacity:this.capacity,
-        // 	location:this.location,
-        // 	configuration:this.configuration,
-        // 	contactAddress:this.contactAddress,
-        // 	image:this.List
-        // }
-        // console.log(roomDetails);
-        // if(this.roomId==undefined || this.configuration==undefined || this.contactAddress ==undefined || this.List.length==0){
-        // 	this.flashMessageService.show('please fill all details',{cssClass:'alert-danger', timeOut: 2000});
-        // }
-        // else{
-        // 	this.authService.roomResource(roomDetails).subscribe(result=>{
-        // 		if(result.success){
-        // 			this.flashMessageService.show('Room successfully inserted',{cssClass:'alert-success', timeOut: 2000});
-        // 			//this.clear();
-        // 		}
-        // 		else{
-        // 	this.flashMessageService.show('Insertion failed',{cssClass:'alert-danger', timeOut: 2000});
-        // 		}
-        // 	})
-        // }
+                else {
+                    _this.flashMessageService.show('Insertion failed', { cssClass: 'alert-danger', timeOut: 2000 });
+                }
+            });
+        }
     };
     RoomResourceComponent.prototype.clear = function () {
         this.filePreviewPath = "";

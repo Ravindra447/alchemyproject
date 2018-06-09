@@ -279,7 +279,7 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/available-rooms/available-rooms.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#available{\n\tbackground: white;\n  \tborder: 0.5px solid lightgray;\n  \theight: 300px;\n  \twidth: 100%;\n  \tpadding: 0px;\n  \tmargin:30px 0px 30px 0px;\n}\n#companyName{\n  word-wrap: break-word; \n  padding: 2px;\n  cursor: pointer;\n  color:#A569BD;\n}\n#companyName:hover{\n  text-decoration: underline;\n}\n.list{\n  border-radius: 5px;\n  border: 0.5px solid lightgray;\n  height: 420px;\n  width: 100%;\n  margin:30px 0px 0px 0px;\n  text-align: center;\n  background: white;\n}\n.filters{\n\tz-index:1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 100px;\n  padding: 0px;\n  margin:0px;\n  padding-bottom: 20px;\n}\n#noRmAvailable{\n\t/*border-radius: 5px;*/\n\tpadding: 50px;\n  \tborder: 0.5px solid lightgray;\n}\n#noImg{\n  width: 100vw; \n  background:lavender;opacity: 0.7;\n  height:200px;\n}\n#staticImg{\n\theight:300px;\n\twidth: 100vw; \n\tcursor: pointer;\t\n}\n.bottomright {\n\t/*position:absolute; \n\tbottom:0;  \n\tright: 0;*/\n\tpadding: 40px;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#roomDetails{\n\t\tpadding-left: 40px;\n\t}\n\t#available{\n\t\tbackground: white;\n\t  \tborder: 0.5px solid lightgray;\n\t  \theight: 600px;\n\t  \twidth: 100%;\n\t  \tpadding: 0px;\n\t  \tmargin:30px 0px 30px 0px;\n\t}\n\t\n}"
+module.exports = "#available{\n\tbackground: white;\n  \tborder: 0.5px solid lightgray;\n  \theight: 400px;\n  \twidth: 100%;\n  \tpadding: 0px;\n  \tmargin:30px 0px 30px 0px;\n}\n#companyName{\n  word-wrap: break-word; \n  padding: 2px;\n  cursor: pointer;\n  color:#A569BD;\n}\n#companyName:hover{\n  text-decoration: underline;\n}\n.list{\n  border-radius: 5px;\n  border: 0.5px solid lightgray;\n  height: 420px;\n  width: 100%;\n  margin:30px 0px 0px 0px;\n  text-align: center;\n  background: white;\n}\n.filters{\n\tz-index:1;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 100px;\n  padding: 0px;\n  margin:0px;\n  padding-bottom: 20px;\n}\n#noRmAvailable{\n\t/*border-radius: 5px;*/\n\tpadding: 50px;\n  \tborder: 0.5px solid lightgray;\n}\n#noImg{\n  width: 100vw; \n  background:lavender;opacity: 0.7;\n  height:200px;\n}\n#staticImg{\n\theight:300px;\n\twidth: 100vw; \n\tcursor: pointer;\t\n}\n.bottomright {\n\t/*position:absolute; \n\tbottom:0;  \n\tright: 0;*/\n\tpadding: 40px;\n}\n@media \nonly screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {\n\t#roomDetails{\n\t\tpadding-left: 40px;\n\t}\n\t#available{\n\t\tbackground: white;\n\t  \tborder: 0.5px solid lightgray;\n\t  \theight: 700px;\n\t  \twidth: 100%;\n\t  \tpadding: 0px;\n\t  \tmargin:30px 0px 30px 0px;\n\t}\n\t\n}"
 
 /***/ }),
 
@@ -385,7 +385,7 @@ var AvailableRoomsComponent = /** @class */ (function () {
     };
     AvailableRoomsComponent.prototype.bookRoom = function (item) {
         var _this = this;
-        console.log(item);
+        //console.log(item);
         var bookDetails = {
             rmResourceId: item._id,
             userId: this.userId,
@@ -1672,18 +1672,18 @@ var RoomResourceComponent = /** @class */ (function () {
             // console.log(this.configurations);
         });
     };
-    RoomResourceComponent.prototype.capacityChange = function (capacity) {
-        this.capacity = capacity;
-    };
-    RoomResourceComponent.prototype.locationChange = function (location) {
-        this.location = location;
-    };
-    RoomResourceComponent.prototype.configurationChange = function (configuration) {
-        if (configuration !== "Select Configuration") {
-            this.configuration = configuration;
-            // console.log(configuration);
-        }
-    };
+    // capacityChange(capacity){
+    // 	this.capacity=capacity;
+    // }
+    // locationChange(location){
+    // 	this.location=location;
+    // }
+    // configurationChange(configuration){
+    // 	if(configuration!=="Select Configuration"){
+    // 		this.configuration=configuration;
+    // // console.log(configuration);
+    // 	}
+    // }
     RoomResourceComponent.prototype.roomInsert = function () {
         var _this = this;
         this.authService.getConfigurations().subscribe(function (configuration) {
@@ -1699,7 +1699,7 @@ var RoomResourceComponent = /** @class */ (function () {
                         contactAddress: _this.contactAddress,
                         image: _this.List
                     };
-                    console.log(roomDetails);
+                    //console.log(roomDetails);
                     if (_this.roomId == undefined || _this.configuration == undefined || _this.contactAddress == undefined || _this.List.length == 0) {
                         _this.flashMessageService.show('please fill all details', { cssClass: 'alert-danger', timeOut: 2000 });
                     }

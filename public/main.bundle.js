@@ -914,7 +914,7 @@ var LoginComponent = /** @class */ (function () {
         this.authService.authenticateUser(user).subscribe(function (data) {
             _this.authService.storeUserData(data.token, data.user);
             _this.flashMessageService.show('You are now logged in', { cssClass: 'alert-success', timeout: 3000 });
-            _this.router.navigate(['availability']);
+            _this.router.navigate(['available']);
         }, function () {
             _this.flashMessageService.show('Incorrect user id or password', { cssClass: 'alert-danger', timeout: 3000 });
             _this.router.navigate(['/']);

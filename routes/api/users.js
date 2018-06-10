@@ -186,16 +186,16 @@ router.post('/updateBooking',(req,res)=>{
         }
     })
 })
-router.post('/deleteWrong',(req,res)=>{
-    const roomId=req.body.roomId;
-    const location=req.body.location;
-    AvailableRooms.deleteMany({roomId:roomId,location:location},(err,result)=>{
-        if(err) throw err;
+// router.post('/deleteWrong',(req,res)=>{
+//     const roomId=req.body.roomId;
+//     const location=req.body.location;
+//     AvailableRooms.deleteMany({roomId:roomId,location:location},(err,result)=>{
+//         if(err) throw err;
         
-        return res.json({success:true,data:result})
-    })
+//         return res.json({success:true,data:result})
+//     })
 
-})
+// })
 router.get('/prevBookingData',(req,res)=>{
     PrevBooking.find({}).sort({count: -1}).exec((err,data)=>{
         if(err) throw err;

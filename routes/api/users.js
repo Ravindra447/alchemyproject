@@ -12,6 +12,8 @@ const PrevBooking = require('../../models/prevBooking');
 const AvailableRooms= require('../../models/available');
 
 const Configurations= require('../../models/configurations');
+
+const Capacity= require('../../models/capacity');
 const keys = require('../../config/keys');
 
 // Load Input Validation
@@ -46,8 +48,27 @@ router.post('/upload',(req,res,next)=>{
         return res.json({originalname:req.file.originalname,uploadname:req.file.filename})
     })
 })
-
-
+router.post('/capacity',(req,res)=>{
+    const capacity=req.body.capacity;
+    //console.log(capacity);
+    Capacity.findOne({capacity:capacity},(err,result)=>{
+        if(err) throw err;
+        if(result){
+            res.send({success:false,msg:'capacity already exits'});
+        }else{
+            Capacity.create({capacity:capacity},(err,result)=>{
+                if(err) throw err;
+                res.send({success:true,msg:'capacity Inserted',data:result});
+            })
+        }
+    })        
+});
+router.get('/capacityFetch',(req,res)=>{
+    Capacity.find((err,capacity)=>{
+        if(err) throw err;
+        return res.json({success:true,data:capacity});
+    })
+});
 
 router.get('/test', (req, res) => res.json({ msg: "Users works" }));
 
@@ -187,9 +208,9 @@ router.post('/updateBooking',(req,res)=>{
     })
 })
 // router.post('/deleteWrong',(req,res)=>{
-//     const roomId=req.body.roomId;
+//     //const roomId=req.body.roomId;
 //     const location=req.body.location;
-//     AvailableRooms.deleteMany({roomId:roomId,location:location},(err,result)=>{
+//     AvailableRooms.deleteMany({location:location},(err,result)=>{
 //         if(err) throw err;
         
 //         return res.json({success:true,data:result})
@@ -207,7 +228,8 @@ router.post('/configurations',(req,res)=>{
 
     let configuration=new Configurations({
         location:req.body.location,
-        configuration: req.body.configuration
+        configuration: req.body.configuration,
+        capacity:req.body.capacity
     })
     Configurations.findOne({'configuration':configuration.configuration},(err,list)=>{
         if(err) throw err;

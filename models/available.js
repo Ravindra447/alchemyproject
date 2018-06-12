@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 
 const userSchema=new mongoose.Schema({
 	location:String,
-	capacity:Number,
+	capacity:String,
 	configuration:String,
 	roomId:String,
 	contactAddress:String,

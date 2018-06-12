@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 
-
+const nodemailer = require('nodemailer');
 const User = require('../../models/User');
 
 const PrevBooking = require('../../models/prevBooking');
@@ -14,6 +14,7 @@ const AvailableRooms= require('../../models/available');
 const Configurations= require('../../models/configurations');
 
 const Capacity= require('../../models/capacity');
+const Location= require('../../models/locations');
 const keys = require('../../config/keys');
 
 // Load Input Validation
@@ -40,13 +41,39 @@ const upload = multer({
 }).single('file');
 
 router.post('/upload',(req,res,next)=>{
-    console.log(req.file);
+    //console.log(req.file);
     upload(req,res,function(err){
         if(err){
             return res.status(501).json({error:err});
         }
         return res.json({originalname:req.file.originalname,uploadname:req.file.filename})
     })
+})
+router.post('/sendMail',(req,res)=>{
+    //console.log(req.body.userEmail);
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'ravindra.ch447@gmail.com',
+        pass: '7075057872'
+      }
+    });
+
+    var mailOptions = {
+      from: 'ravindra.ch447@gmail.com',
+      to: req.body.userEmail,
+      subject: 'Conformation for your advance booking ',
+      text: 'This is the conformation PO Number for Your Advance Room Booking From '+ req.body.startDate + ' to ' +req.body.endDate + ' is :' +req.body.poNumber
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        //console.log('Email sent: ' + info.response);
+        res.json({success:true,msg:"PO Number Sended to Your Regitered GMail"})
+      }
+    });
 })
 router.post('/capacity',(req,res)=>{
     const capacity=req.body.capacity;
@@ -67,6 +94,27 @@ router.get('/capacityFetch',(req,res)=>{
     Capacity.find((err,capacity)=>{
         if(err) throw err;
         return res.json({success:true,data:capacity});
+    })
+});
+router.post('/locations',(req,res)=>{
+    const location=req.body.location;
+    //console.log(capacity);
+    Location.findOne({location:location},(err,result)=>{
+        if(err) throw err;
+        if(result){
+            res.send({success:false,msg:'location already exits'});
+        }else{
+            Location.create({location:location},(err,result)=>{
+                if(err) throw err;
+                res.send({success:true,msg:'location Inserted',data:result});
+            })
+        }
+    })        
+});
+router.get('/locationsFetch',(req,res)=>{
+    Location.find((err,location)=>{
+        if(err) throw err;
+        return res.json({success:true,data:location});
     })
 });
 
@@ -116,7 +164,7 @@ router.post('/login', (req, res) => {
             if (!user) {
                 return res.status(404).json({ msg: 'email not found' });
             }
-            console.log(user);
+            //console.log(user);
             // Check password
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
@@ -158,30 +206,27 @@ router.post('/prevBooking',(req,res)=>{
         location:req.body.location,
         capacity:req.body.capacity,
         city:req.body.city,
-        state:req.body.state,
-        zipcode:req.body.zipcode,
         startDate:req.body.startDate,
         endDate:req.body.endDate,
-        status:req.body.status
+        status:req.body.status,
+        poNumber:req.body.poNumber
     })
     //console.log(bookingData)
     PrevBooking.create(bookingData,(err,data)=>{
-        if(err)
-            return res.json({success:false,msg:"server not responding"});  
-        
-        return res.json({success:true,msg:"Booking is success"});              
+        if(err) throw err;
+        return res.json({success:true,data:data});
     })
 });
 router.post('/updatePrevBooking',(req,res)=>{
     const status=req.body.status;
     const id=req.body.bookingId;
-    PrevBooking.updateOne({_id:id},{$set: {status:status}},(err,data)=>{
+    const poNumber=req.body.poNumber;
+    //console.log(poNumber,status,id);
+    PrevBooking.updateOne({_id:id},{$set: {status:status,poNumber:poNumber}},{upsert:true},(err,data)=>{
         if(err){
              throw err;
         }
         else{
-
-            console.log(data);
             PrevBooking.find((err,data)=>{
                 if(err) throw err;
                 return res.json({success:true,data:data})
@@ -193,20 +238,19 @@ router.post('/updateBooking',(req,res)=>{
     const id=req.body.rmResourceId;
     const startDate=req.body.startDate;
     const endDate=req.body.endDate;
-    AvailableRooms.updateOne({_id:id},{$set: {startDate:startDate,endDate:endDate}},(err,data)=>{
+    //console.log(id);
+    AvailableRooms.updateOne({_id:id},{$set: {startDate:startDate,endDate:endDate}},{upsert:true},(err,data)=>{
         if(err){
              throw err;
         }
         else{
-
-            console.log(data);
             AvailableRooms.find((err,data)=>{
                 if(err) throw err;
                 return res.json({success:true,data:data})
             }); 
         }
     })
-})
+});
 // router.post('/deleteWrong',(req,res)=>{
 //     //const roomId=req.body.roomId;
 //     const location=req.body.location;
@@ -218,7 +262,7 @@ router.post('/updateBooking',(req,res)=>{
 
 // })
 router.get('/prevBookingData',(req,res)=>{
-    PrevBooking.find({}).sort({count: -1}).exec((err,data)=>{
+    PrevBooking.find({}).sort({_id: -1}).exec((err,data)=>{
         if(err) throw err;
 
         return res.json({success:true,data:data})
@@ -267,7 +311,7 @@ router.post('/roomResource',(req,res)=>{
     })
 })
 router.get('/getAvailableRooms',(req,res)=>{
-    AvailableRooms.find({}).sort({count: -1}).exec((err,availableRooms)=>{
+    AvailableRooms.find({}).sort({_id: -1}).exec((err,availableRooms)=>{
         if(err) throw err;
         return res.json({success:true,data:availableRooms});
     })

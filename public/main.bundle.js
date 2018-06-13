@@ -2285,7 +2285,7 @@ var AuthService = /** @class */ (function () {
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.updateBooking = function (status) {
-        console.log(status);
+        //console.log(status)
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         return this.http.post('/api/users/updateBooking', status, { headers: headers })

@@ -312,7 +312,7 @@ router.post('/roomResource',(req,res)=>{
     })
 })
 router.get('/getAvailableRooms',(req,res)=>{
-    AvailableRooms.find((err,availableRooms)=>{
+    AvailableRooms.find({}).sort({_id: 1}).exec((err,availableRooms)=>{
         if(err) throw err;
         return res.json({success:true,data:availableRooms});
     })

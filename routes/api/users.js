@@ -54,14 +54,14 @@ router.post('/sendMail',(req,res)=>{
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'ravindra.ch447@gmail.com',
-        pass: '7075057872'
+        user: 'alchemyapplication170@gmail.com',
+        pass: 'alchemy@123'
       }
     });
 
     var mailOptions = {
-      from: 'ravindra.ch447@gmail.com',
-      to: req.body.userEmail,
+      from: 'alchemyapplication170@gmail.com',
+      to: 'niranjan@alchemysolutions.net',
       subject: 'Conformation for your advance booking ',
       text: 'This is the conformation PO Number for Your Advance Room Booking From '+ req.body.startDate + ' to ' +req.body.endDate + ' is :' +req.body.poNumber
     };
@@ -135,7 +135,8 @@ router.post('/register', (req, res) => {
                 const newUser = new User({
                     name: req.body.name,
                     email: req.body.email,
-                    password: req.body.password
+                    password: req.body.password,
+                    userType:"user"
                 });
 
                 bcrypt.genSalt(10, (err, salt) => {
@@ -311,7 +312,7 @@ router.post('/roomResource',(req,res)=>{
     })
 })
 router.get('/getAvailableRooms',(req,res)=>{
-    AvailableRooms.find({}).sort({_id: -1}).exec((err,availableRooms)=>{
+    AvailableRooms.find((err,availableRooms)=>{
         if(err) throw err;
         return res.json({success:true,data:availableRooms});
     })

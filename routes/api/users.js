@@ -71,7 +71,7 @@ router.post('/sendMail',(req,res)=>{
         console.log(error);
       } else {
         //console.log('Email sent: ' + info.response);
-        res.json({success:true,msg:"PO Number Sended to Your Regitered GMail"})
+        res.json({success:true,msg:"PO Validator Sended to Your Regitered GMail"})
       }
     });
 })

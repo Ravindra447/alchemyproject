@@ -1,4 +1,4 @@
 module.exports = {
-    mongoURI: 'mongodb://alchemy:Alchemy2018@ds143131.mlab.com:43131/alchemy',
+    mongoURI: 'mongodb://alchemysol:alchemy123@ds141870.mlab.com:41870/alchemysol',
     secretOrKey: 'AlchemyIbm2018'
 };
